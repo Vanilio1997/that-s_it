@@ -27,7 +27,7 @@
                         <button class="search_btn"><img class="search_logo" src="./logos/Search.svg"  /></button>
                     </div>
                 </div>    
-                <div class="icons_container">
+                <div class="icons_container flex_row">
                     <div>
                         <a class="header_icon"><img src="./logos/Profile_icon.svg"><span>Профиль</span></a>
                     </div>
@@ -36,36 +36,51 @@
             </div>
         </header>
         <main class="main">
-            <div class="main_container">
-                <div class="left_main">
-                rewq
+            <div class="main_container flex_row">
+                <div class="left_main flex_column">
+                    <div class="backet flex_column">
+                        <div class="left_header">Корзина</div>
+                        <div class="flex_column backet_info_container">
+                            <div class="inStok_container">
+                                <div class="pick_all_container flex_row">
+                                    <div class="checkbox_flex_container" >
+                                        <input type="checkbox" class="custom_checkbox_pay" id="pick_all" >
+                                        <label for="pick_all"/>
+                                    </div>
+                                    <div class="full_width">Выбрать все</div>
+                                    <button class="logo_btn"><img src="./logos/Line.svg" /></button>
+                                </div>
+                                <div class="products_list_container flex_column"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="right_main">
-                    <div class="white_container order_fullInfo_box">
-                        <div class="order_list_container">
-                            <div class="price_info_container">
-                                <div class="price_header_info_container">
+                    <div class="white_container order_fullInfo_box flex_column">
+                        <div class="order_list_container flex_column">
+                            <div class="price_info_container flex_column">
+                                <div class="price_header_info_container flex_row">
                                     <div class="left_price_info header_text_price">Итого</div>
                                     <div class="right_price_info header_text_price">2 101 063 сом</div>
                                 </div>
-                                <div class="price_info_container">
-                                    <div class="price_container">
+                                <div class="price_info_container flex_column">
+                                    <div class="price_container flex_row">
                                         <div class="left_price_info ">4 товара</div>
                                         <div class="right_price_info ">2 302 048 сом</div>
                                     </div>
-                                    <div class="price_container">
+                                    <div class="price_container flex_row">
                                         <div class="left_price_info ">Скидка</div>
                                         <div class="right_price_info "> -200 985 сом</div>
                                     </div>
-                                    <div class="price_container">
+                                    <div class="price_container flex_row">
                                         <div class="left_price_info ">Доставка</div>
                                         <div class="right_price_info ">Бесплатно</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="delivery_info_container">
+                            <div class="delivery_info_container flex_column">
                                 <div class="delivary_place">
-                                    <div class="price_container">
+                                    <div class="price_container flex_row">
                                         <div class="delivery_info_header">Доставка в пункт выдачи</div>
                                         <div class="edit_logo">
                                             <button class="logo_btn"> <img src="./logos/Edit.svg" alt="edit"></button>
@@ -88,15 +103,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card_info_container">
+                            <div class="card_info_container flex_column">
                                 <div>
-                                    <div class="price_container">
+                                    <div class="price_container flex_row">
                                         <div class="delivery_info_header">Оплата картой</div>
                                         <div class="edit_logo">
                                             <button class="logo_btn"> <img src="./logos/Edit.svg" alt="edit"></button>
                                         </div> 
                                     </div>
-                                    <div class="card_info">
+                                    <div class="card_info flex_row">
                                         <div class="card_type">
                                             <img  src="./logos/Vector (2).svg" />
                                             <img  src="./logos/Vector (1).svg" />
@@ -116,9 +131,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="order_btn_container">
+                        <div class="order_btn_container flex_column">
                             <button class="but_btn">Заказать</button>
-                                <div class="agree_with_rules_container">
+                                <div class="agree_with_rules_container flex_row">
                                 <div><img  class="agree_with_rules_logo" src="./logos/Path Copy 2 (Stroke).svg" alt=""></div>
                                 <div class="agree_text"> Соглашаюсь с правилами пользования торговой площадкой и возврата</div>
                             </div>
@@ -128,7 +143,15 @@
             </div>     
         </main>
     </div>
+
+
+    <script src="./js/data.js"></script>
+    <script src="./js/script.js"></script>
+
+
 </body>
 </html>
 
 </br>
+
+<div></div>

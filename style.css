@@ -5,7 +5,7 @@
     --white-color: #fff;
     --smoky-color: #F6F6FA;
     --green-color: #0cb477;
-
+    --grey-color:#a0a0a4;
 }
 
 *{
@@ -16,6 +16,13 @@
 
 .container{
     background-color: var(--white-color);
+    font-family: Segoe UI;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+
 }
 
 .header{
@@ -25,6 +32,7 @@
     color: var(--white-color);
     position: relative;
     padding-bottom: 24px;
+    background-color:var(--purple-color) ;
 }
 header ::after{
     content: '';
@@ -104,6 +112,7 @@ header ::after{
     height: 100%;
     border: 0; 
     color: var(--white-color);
+    font-size: 18px;
 }
 
 .search_input:focus{
@@ -121,7 +130,6 @@ header ::after{
     width: 20px;
 }
 .icons_container{
-    display: flex;
     justify-content: center;
     align-items: flex-end;
     padding: 0px 17px 0px 0px;
@@ -148,17 +156,12 @@ header ::after{
 }
 
 .main_container{
-    display: flex;
-    flex-direction: row;
     padding: 0px 24px 16px;
     gap: 32px;
     isolation: isolate;
-    
 }
 
 .left_main{
-    display: flex;
-    flex-direction: column;
     padding: 0px;
     gap: 27px;
     flex: none;
@@ -186,8 +189,6 @@ header ::after{
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15), 0px 0px 1px rgba(0, 0, 0, 0.3);
     align-items: center;
     padding: 16px 24px 24px;
-    display: flex;
-    flex-direction: column;
     gap: 24px;
     font-family: 'Segoe UI';
     font-style: normal;
@@ -196,21 +197,15 @@ header ::after{
     line-height: 24px;
 }
 .order_list_container{
-    display: flex;
-    flex-direction: column;
     gap: 24px;
 }
 
 .order_btn_container{
-    display: flex;
-    flex-direction: column;
     padding: 0px;
     gap: 12px;
 }
 
 .delivery_info_container{
-    display: flex;
-    flex-direction: column;
     padding: 0px;
     gap: 12px;
     font-family: Segoe UI;
@@ -220,8 +215,6 @@ header ::after{
     letter-spacing: 0px;
 }
 .card_info_container{
-    display: flex;
-    flex-direction: column;
     padding: 0px;
     gap: 12px;
     width: 381px;
@@ -229,8 +222,6 @@ header ::after{
     flex-grow: 0;
 }
 .price_header_info_container{
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     padding: 0px;
     gap: 9px;
@@ -242,23 +233,17 @@ header ::after{
 }
 
 .price_info_container{
-    display: flex;
-    flex-direction: column;
     padding: 0px;
     width: 100%;
 }
 
 .price_container{
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     padding: 0px;
     width: 100%;
 }
 
 .delivery_info_container{
-    display: flex;
-    flex-direction: column;
     gap:12px;
 }
 
@@ -313,8 +298,6 @@ header ::after{
 }
 
 .card_info{
-    display: flex;
-    flex-direction: row;
     gap: 8px;
 }
 .card_type{
@@ -346,8 +329,6 @@ header ::after{
 }
 
 .agree_with_rules_container{
-    display: flex;
-    flex-direction: row;
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
@@ -364,8 +345,6 @@ header ::after{
     position: absolute;
     z-index: -1;
     opacity: 0;
-    width: 22px;
-    height: 22px;
 }
 
 .custom_checkbox_pay+label {
@@ -375,10 +354,11 @@ header ::after{
 }
 
 .custom_checkbox_pay+label::before{
+    box-sizing: border-box;
+    width: 22px;
+    height: 22px;
     content: '';
     display: inline-block;
-    width: 1em;
-    height: 1em;
     flex-shrink: 0;
     flex-grow: 0;
     border: 1px solid #adb5bd;
@@ -387,11 +367,129 @@ header ::after{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50% 50%;
-  }
+}
+
 .custom_checkbox_pay:checked+label::before {
-    border-color: var(--lilac-color);
-    background-color: var(--lilac-color);
+    position: relative;
+    top: 0;
+    left: 0;
+    border-color: #34ee54;
+    background-color: #34ee54;
     background-image: url("./logos/Path\ Copy\ 2\ \(Stroke\).svg");
-    color: var(--white-color);
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: invert();
   }
 
+.left_main{
+    /* padding-top: 10px; */
+}
+
+.left_header{
+    font-family: Segoe UI;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+.flex_column{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex_row{
+    display: flex;
+    flex-direction: row;
+}
+
+.backet{
+    align-items: flex-start;
+    padding: 0px;
+    gap: 27px;
+}
+.backet_info_container{
+    align-items: flex-start;
+    padding: 0px;
+    gap: 40px;
+    width: 100%;
+}
+.inStok_container{
+    width: 100%;
+}
+.pick_all_container{
+    align-items: center;
+    padding: 0px;
+    gap: 11px;
+}
+.checkbox_flex_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.full_width{
+    width: 100%;
+}
+
+.products_list_container{
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+}
+
+.product_container{
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    isolation: isolate;
+}
+
+.product_type{
+    align-items: flex-start;
+    padding: 12px 0px 0px;
+    gap: 16px;
+}
+
+.add_product_container{
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+}
+.product_picture{
+    height: 96px;
+    width: 72px;
+}
+
+.product_description{
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+}
+
+.product_info{
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.company_info_container{
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    font-size: 13px;
+    line-height: 16px;
+    color: var(--grey-color);
+}
+
+.company_name_container{
+    align-items: center;
+    padding: 0px;
+    gap: 6px;
+    text-align: center;
+}
+.more_company_info_btn{
+    width: 16px;
+    height: 16px;
+}
