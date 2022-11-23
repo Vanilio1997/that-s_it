@@ -1,8 +1,10 @@
 :root {
     --purple-color: #6725a8;
+    --lilac-color: #cb11ab;
     --red-color: #F55123;
     --white-color: #fff;
     --smoky-color: #F6F6FA;
+    --green-color: #0cb477;
 
 }
 
@@ -13,7 +15,7 @@
 }
 
 .container{
-    background-color: #6725a8;
+    background-color: var(--white-color);
 }
 
 .header{
@@ -21,9 +23,23 @@
     justify-content: center;
     align-items: center;
     color: var(--white-color);
+    position: relative;
+    padding-bottom: 24px;
+}
+header ::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 24px;
+    border-radius: 24px 24px 0 0;
+    background: var(--smoky-color);
+    position: absolute;
+    bottom: 0px;
+    left: 0;
 }
 
 .header_container{
+    background-color: var(--purple-color);
     display: flex;
     height: 88px;
     padding: 20px 24px;
@@ -66,18 +82,17 @@
 
 
 .search_container{
-    position: relative;
     background-color: #ffffff33;
     width: 100%;
     margin-right: 32px;
     border-radius: 36px;
     padding: 0 20px;
 }
+
 .input_container{
     display: flex;
     height:100%;
 }
-
 
 .input_block{
     width: 100%;
@@ -127,3 +142,256 @@
     display: block;
     cursor: pointer;
 }
+
+.main{
+    background-color: var(--smoky-color);
+}
+
+.main_container{
+    display: flex;
+    flex-direction: row;
+    padding: 0px 24px 16px;
+    gap: 32px;
+    isolation: isolate;
+    
+}
+
+.left_main{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    gap: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    z-index: 1;
+}
+
+.right_main{
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 0;
+}
+
+.white_container{
+    background: #FFFFFF;
+    border-radius: 16px;
+}
+
+.order_fullInfo_box{
+    width: 429px;
+    height: 572px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15), 0px 0px 1px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    padding: 16px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.order_list_container{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.order_btn_container{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    gap: 12px;
+}
+
+.delivery_info_container{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    gap: 12px;
+    font-family: Segoe UI;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+}
+.card_info_container{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    gap: 12px;
+    width: 381px;
+    height: 130px;
+    flex-grow: 0;
+}
+.price_header_info_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+    gap: 9px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    width: 100%
+}
+
+.price_info_container{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    width: 100%;
+}
+
+.price_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+    width: 100%;
+}
+
+.delivery_info_container{
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+}
+
+.delivery_info_header{
+    font-family: Segoe UI;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.logo_btn{
+    background-color: transparent;
+    border: none;
+    cursor:pointer;
+}
+
+.arrive_date{
+    color: var(--lilac-color);
+    border-bottom: 1px dashed #cb11ab33;
+    width: 48px;
+}
+
+.gray_orfer_info_container{
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px 8px 12px 8px;
+    background-color: var(--smoky-color);
+}
+
+.green_text{
+    color: var(--green-color);
+    border-bottom: 1px dashed #0cb47733;
+}
+
+.circle_logo{
+    position: relative;
+    margin-right: 13px;
+}
+
+.check_mark_logo{
+    position: absolute;
+    left: 5px;
+    top: 0;
+}
+
+.refund_info_container{
+    display: flex;
+    justify-content: start  ;
+    align-items: center;
+}
+
+.card_info{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.card_type{
+    display: flex;
+    max-height: 100%;
+    background-color: var(--smoky-color);
+}
+
+
+.but_btn{
+    align-items: center;
+    padding: 0px 32px 5px;
+    width: 100%;
+    height: 44px;
+    background: var(--lilac-color);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    color: var(--white-color);
+}
+
+.agree_with_rules_logo{
+    width: 13px;
+    height: 24px;
+}
+
+.agree_with_rules_container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    isolation: isolate;
+}
+
+.agree_text{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.custom_checkbox_pay{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    width: 22px;
+    height: 22px;
+}
+
+.custom_checkbox_pay+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.custom_checkbox_pay+label::before{
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+.custom_checkbox_pay:checked+label::before {
+    border-color: var(--lilac-color);
+    background-color: var(--lilac-color);
+    background-image: url("./logos/Path\ Copy\ 2\ \(Stroke\).svg");
+    color: var(--white-color);
+  }
+
