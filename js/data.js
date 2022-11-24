@@ -32,10 +32,28 @@ const data = [
         companyName: "ООО Вайлдберриз",
         inStoke:3,
         weHave:0,
-        price: 522,
-        discountPrice: 1051,
+        price: 494,
+        discountPrice: 950,
         currency: "com",
         id:3,
         picture: "./logos./Pencils.png",
     }
 ]
+
+class Product {
+    constructor(options){
+        this.price = options.price
+    }
+
+    plusPrice(){
+        this.price = this.price + 1;
+        console.log(this.price);
+    }
+}
+
+
+const product = new Product({
+    price: 0,
+})
+
+

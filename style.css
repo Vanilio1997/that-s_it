@@ -283,12 +283,17 @@ header ::after{
 .circle_logo{
     position: relative;
     margin-right: 13px;
+    width: 20px;
+    height: 20px;
 }
 
 .check_mark_logo{
     position: absolute;
-    left: 5px;
     top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 .refund_info_container{
@@ -445,6 +450,7 @@ header ::after{
     padding: 0px;
     gap: 16px;
     isolation: isolate;
+    width: 100%;
 }
 
 .product_type{
@@ -467,6 +473,7 @@ header ::after{
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
+    max-width: 275px;
 }
 
 .product_info{
@@ -492,4 +499,213 @@ header ::after{
 .more_company_info_btn{
     width: 16px;
     height: 16px;
+}
+.quantity_price_container{
+    padding-top: 9px;
+    gap: 16px;
+}
+
+.quantity_container{
+    align-items: flex-end;
+    padding-top: 3px;
+    gap: 8px;
+}
+
+.counter_container{
+    width: 100px;
+    height: 44px;
+    background-color: var(--white-color);
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 0 12px;
+}
+
+.product_inStoke{
+    font-size: 13px;
+    line-height: 16px;
+    color: #FF3B30;
+}
+
+.delete_like_btns_container{
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.product_price_info_container{
+    width: 110px;
+    align-items: flex-end;
+    gap: 5px;
+    text-align: end;
+}
+
+.discountPrice_price{
+    font-weight: 700;
+}
+
+.short_discpount_price{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.prodcut_price{
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+    color: var(--grey-color);
+    font-size: 13px;
+    line-height: 16px;
+    text-decoration: line-through;
+	text-decoration-color: var(--grey-color);
+}
+
+.header_not_available{
+    font-weight:600;
+    justify-content: space-between;
+}
+ 
+.not_available_container{
+    gap: 16px;
+    width: 100%;
+}
+
+.not_available_list_container{
+    gap: 20px;
+}
+
+.notAvailable_product_container{
+    justify-content: space-between;
+    gap: 16px;
+    isolation: isolate;
+}
+
+.notAvailable_product_type{
+    padding-top: 12px;
+    gap: 16px;
+    width: 309px;
+}
+
+.filter_gray{
+    filter: gray; 
+    -webkit-filter: grayscale(1); 
+    filter: grayscale(1); 
+}
+
+.notAvailable_product_description{
+    gap: 8px;
+    color: var(--grey-color);
+}
+
+.notAbailable_product_info{
+    font-size: 13px;
+    line-height: 16px;
+}
+.notAbailable_right_block{
+    width: 226px;
+    padding-top:9px;
+}
+
+.notAbailable_block_logos{
+    align-items: flex-end;
+    padding: 3px 0px 0px;
+    gap: 16px;
+    width: 100px;
+}
+
+.notAbailable_container_logos{
+    gap: 16px;
+}
+
+.registration_container{
+    gap: 16px;
+    isolation: isolate;
+    width: 100%;
+}
+
+.delivery_container{
+    padding: 16px 0px 24px;
+    gap: 24px;
+    isolation: isolate;
+}
+
+.delivery_method_container{
+    gap: 16px;
+}
+
+.delivery_method_container_header{
+    padding: 0px 24px;
+    gap: 10px;
+    justify-content: space-between;
+}
+.delivery_method_container_header_text{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+}
+
+.change_delivery_method_btn{
+    padding: 7px;
+    color: var(--lilac-color);
+    font-weight: 700;
+}
+
+.delivery_order_info{
+    gap: 32px;
+    align-self: stretch;
+}
+
+.delivery_order_left{
+    padding-left:24px;
+    gap: 16px;
+    font-weight: 600;
+}
+
+.delivery_order_right{
+    padding-right:24px;
+    gap: 16px;
+}
+
+.market_rating_container{
+    gap: 8px;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.star_rating_container{
+    gap: 2px;
+}
+
+.arrival_date img{
+    width: 40px;
+    height: 56px;
+}
+
+.height_44{
+    height: 44px;
+}
+
+.height_56{
+    height: 56px;
+}
+
+.delivery_right_place_container{
+    gap:4px
+}
+
+.payment_container{
+    padding: 16px 24px 24px;
+    gap: 8px;
+}
+
+.choose_card_container{
+    gap: 16px;
+}
+
+.recipient_container{
+    padding: 16px 24px 24px;
+    gap: 16px;
 }
