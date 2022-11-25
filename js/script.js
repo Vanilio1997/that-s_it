@@ -2,8 +2,8 @@
 
 let products = '';
 let notAvailableProducts = '';
-
-
+let inputTop = '';
+let inputBottom = '';
 
 
 data.forEach(({productName, productInfo, marcetPlaceName, companyName, inStoke, weHave, price, discountPrice, currency,picture,id})=>{
@@ -70,12 +70,32 @@ data.forEach(({productName, productInfo, marcetPlaceName, companyName, inStoke, 
                                         </div>
                                     </div>
                                 </div>
-                            </div>`
+                            </div> `
 })
 
 
+
+for (let i = 0; i< inputsData.length; i++){
+    let input = `
+                <div class="flex_column gap_2 full_width color_gray">
+                    <label class="height_16" for=${inputsData[i].id}>${inputsData[i].label}</label>
+                    <div class="gap_4">
+                        <input class="full_width recipient_input_text recipient_input_settings" type="text" placeholder=${inputsData[i].placeholder} id=${inputsData[i].id}></input>
+                        <div class="height_14">${inputsData[i].warningText}</div>
+                    </div>
+                </div> 
+                `
+    if(i<2){
+        inputTop+= input
+    } else {
+        inputBottom += input
+    }
+}
+
 document.querySelector(".products_list_container").innerHTML = products
 document.querySelector(".not_available_list_container").innerHTML = notAvailableProducts
+document.querySelector(".input_top_container").innerHTML = inputTop
+document.querySelector(".input_bottom_container").innerHTML = inputBottom
 
 const aaa = document.querySelector(".plus")
 
