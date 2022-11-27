@@ -60,6 +60,7 @@ for (let i = 0; i< inputsElements.length; i++){
     const placeholder = element.getAttribute("placeholder")
     const label = document.querySelector(`[for="${inputsElements[i]}"]`);
     const inputObj = compareId(element.id)
+    element.addEventListener("change", (e) => checkInputValue(e.target.value, element ,e.type))
     element.addEventListener('input', (e) => {
         if(e.target.value.length > 0 ){
             label.innerHTML = placeholder
@@ -112,8 +113,3 @@ function checkInputValue(inputText, element, eventType){
 }
 
 
-nameInput.addEventListener("change", (e) => checkInputValue(e.target.value, nameInput ,e.type))
-secondNameInput.addEventListener("change", (e) => checkInputValue(e.target.value, secondNameInput))
-emailInput.addEventListener("change" , (e)=> checkInputValue(e.target.value, emailInput ))
-phoneNumberInput.addEventListener("change", (e)=> checkInputValue(e.target.value,phoneNumberInput999))
-indexInput.addEventListener("change", (e)=> checkInputValue(e.target.value, indexInput))
