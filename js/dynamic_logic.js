@@ -41,8 +41,6 @@ for(let i = 0; i<notAvailableProductsElements.length; i++){
 
 // Работа с инпутами 
 
-let tag = ""
-
 const nameInput = document.querySelector("#name_input")
 const secondNameInput = document.querySelector("#second_name_input")
 const emailInput = document.querySelector("#email_input")
@@ -85,7 +83,6 @@ function compareId(id){
 
 
 function checkInputValue(inputText, element, eventType){
-    console.log(eventType);
     let inputObj = compareId(element.id)
     const chekResult = inputObj.regex.test(inputText);
     let div = document.createElement("div");
@@ -111,5 +108,47 @@ function checkInputValue(inputText, element, eventType){
     }
 
 }
+
+
+// Добавление и удаление товаров 
+
+const plusButtons = document.querySelectorAll(".plus_btn")
+const minusButtons = document.querySelectorAll(".minus_btn")
+
+
+
+
+
+function plusProduct(id){
+    data.forEach(product => {
+        if(product.plus_id === id){
+            product.plus()
+            document.querySelector(`#${product.weHaveId}`).innerHTML = product.weHave
+        }
+    })
+}
+
+function minusProduct(id){
+    console.log(213);
+    data.forEach(product => {
+        if(product.minus_id === id){
+            product.minus()
+            document.querySelector(`#${product.weHaveId}`).innerHTML = product.weHave
+        }
+    })
+}
+
+plusButtons.forEach(e => {
+    let plus =  document.querySelector(`#${e.id}`)
+    plus.addEventListener("click" , () => plusProduct(e.id))
+})
+
+minusButtons.forEach(e => {
+    let minus =  document.querySelector(`#${e.id}`)
+    console.log(minus);
+    minus.addEventListener("click" , () => minusProduct(e.id))
+})
+
+
 
 

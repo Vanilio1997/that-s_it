@@ -5,7 +5,7 @@ let inputTop = '';
 let inputBottom = '';
 
 
-data.forEach(({productName, productInfo, marcetPlaceName, companyName, inStoke, weHave, price, discountPrice, currency,picture,id , plus})=>{
+data.forEach(({productName, productInfo, marcetPlaceName, companyName, inStoke, weHave, price, discountPrice, currency,picture,id , plus_id, minus_id, inStokeId, weHaveId})=>{
     let isProductInfo = () => productInfo.length > 0 ? productInfo : ''
     let discountPrcieClass = () => String(discountPrice).length > 3 ? "long_discount_price" : "short_discpount_price" 
     let splitPrice = price.toLocaleString() 
@@ -36,9 +36,9 @@ data.forEach(({productName, productInfo, marcetPlaceName, companyName, inStoke, 
                     <div class="flex_row quantity_price_container">
                         <div class="flex_column quantity_container"> 
                             <div class="flex_row counter_container"> 
-                                <div>-</div>    
-                                <div>${weHave}</div>    
-                                <div class="plus" onclick="${plus()}" >+</div>    
+                                <div class='minus_btn' id=${minus_id}>-</div>    
+                                <div id=${weHaveId}>${weHave}</div>    
+                                <div class='plus_btn' id=${plus_id} >+</div>    
                             </div>
                             <span class="product_inStoke hide_element">осталось ${inStoke} шт.</span>
                             <div class="flex_row delete_like_btns_container hide_element">

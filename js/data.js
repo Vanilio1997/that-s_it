@@ -7,13 +7,21 @@ const data = [
         marcetPlaceName:"Коледино WB",
         companyName: "ООО Вайлдберриз",
         inStoke:3,
+        inStokeId: "InStoke_id_1",
         weHave:0,
+        weHaveId:"weHave_id_1" , 
         price: 1051,
         discountPrice: 522,
         currency: "com",
         id:1,
         picture: "./logos./Tshirt.png",
+        plus_id: "plus_id_1",
+        minus_id: "minus_id_1",
         plus(){
+            this.weHave++
+        },
+        minus(){
+            this.weHave--
         }
     },
     {
@@ -22,14 +30,21 @@ const data = [
         marcetPlaceName:"Коледино WB",
         companyName: "OOO Мегапрофстиль",
         inStoke:500,
+        inStokeId: "InStoke_id_2",
         weHave:0,
+        weHaveId:"weHave_id_2" , 
         price: 2100047,
         discountPrice: 2300047,
         currency: "com",
         id:2,
         picture: "./logos./Iphone_case.png",
+        plus_id: "plus_id_2",
+        minus_id: "minus_id_2",
         plus(){
-            console.log(this);
+            this.weHave++
+        },
+        minus(){
+            this.weHave--
         }
     },
     {
@@ -38,14 +53,21 @@ const data = [
         marcetPlaceName:"Коледино WB",
         companyName: "ООО Вайлдберриз",
         inStoke:3,
+        inStokeId: "InStoke_id_3",
         weHave:0,
+        weHaveId:"weHave_id_3",
         price: 494,
         discountPrice: 950,
         currency: "com",
         id:3,
         picture: "./logos./Pencils.png",
+        plus_id: "plus_id_3",
+        minus_id: "minus_id_3",
         plus(){
-            console.log(this);
+            this.weHave++
+        },
+        minus(){
+            this.weHave--
         }
     }
 ]
@@ -118,4 +140,3 @@ const inputsData = [
         regex:  /^[0-9]{10}$/,
     },
 ]
-
