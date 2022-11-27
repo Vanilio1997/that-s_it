@@ -14,6 +14,10 @@
     margin: 0;
 }
 
+body{
+ 
+}
+
 .container{
     background-color: var(--white-color);
     font-family: Segoe UI;
@@ -122,7 +126,7 @@ header ::after{
 .search_btn{
     background-color: transparent;
     border: none;
-    cursor: pointer;
+    cursor: url('./logos/cursor.svg'),auto;;
     opacity: 0.4;
 }
 .search_logo{
@@ -148,7 +152,7 @@ header ::after{
     text-decoration: none;
     text-align: center;
     display: block;
-    cursor: pointer;
+    cursor: url('./logos/cursor.svg'),auto;;
 }
 
 .main{
@@ -164,14 +168,12 @@ header ::after{
 .left_main{
     padding: 0px;
     gap: 27px;
-    flex: none;
     order: 0;
     flex-grow: 1;
     z-index: 1;
 }
 
 .right_main{
-    flex: none;
     order: 1;
     align-self: stretch;
     flex-grow: 0;
@@ -217,7 +219,6 @@ header ::after{
 .card_info_container{
     padding: 0px;
     gap: 12px;
-    width: 381px;
     height: 130px;
     flex-grow: 0;
 }
@@ -259,7 +260,7 @@ header ::after{
 .logo_btn{
     background-color: transparent;
     border: none;
-    cursor:pointer;
+    cursor:url('./logos/cursor.svg'),auto;;
 }
 
 .arrive_date{
@@ -324,7 +325,7 @@ header ::after{
     line-height: 24px;
     text-align: center;
     border: none;
-    cursor: pointer;
+    cursor: url('./logos/cursor.svg'),auto;;
     color: var(--white-color);
 }
 
@@ -530,6 +531,7 @@ header ::after{
     line-height: 16px;
     color: #FF3B30;
 }
+
 
 .delete_like_btns_container{
     justify-content: center;
@@ -781,7 +783,7 @@ header ::after{
 .footer::before {
     content: "";
     display: block;
-    background-color: var(--white-color);
+    background-color: var(--smoky-color);
     border-radius: 0 0 24px 24px;
     width: 100%;
     height: 24px;
@@ -795,10 +797,53 @@ header ::after{
     gap: 40px;
 }
 
-
 .footer_text_container{
     font-size: 13px;
     line-height: 16px;
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
 }
+.red_warning {
+    color: var(--red-color);
+    border-bottom: 1px solid var(--red-color);
+}
+
+.inputs_warning_text{
+    color: var(--red-color);
+    height: 14px;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.hide_element{
+    display: none;
+}
+
+
+.show_element{
+    display: block;
+}
+
+@media(max-width: 1400px){
+    .order_fullInfo_box{
+        width: 303px;
+        height: 604px;
+    }
+    .order_list_container{
+        width: 100%;
+    }
+}
+
+@media(max-width: 1024px){
+    .main_container{
+        flex-direction: column;
+    }
+    .product_container{
+        flex-direction: column;
+    }
+}
+
+
+
+ 

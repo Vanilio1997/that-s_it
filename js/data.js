@@ -12,7 +12,9 @@ const data = [
         discountPrice: 522,
         currency: "com",
         id:1,
-        picture: "./logos./Tshirt.png"
+        picture: "./logos./Tshirt.png",
+        plus(){
+        }
     },
     {
         productName: "Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe",
@@ -26,6 +28,9 @@ const data = [
         currency: "com",
         id:2,
         picture: "./logos./Iphone_case.png",
+        plus(){
+            console.log(this);
+        }
     },
     {
         productName: `Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell `,
@@ -39,6 +44,9 @@ const data = [
         currency: "com",
         id:3,
         picture: "./logos./Pencils.png",
+        plus(){
+            console.log(this);
+        }
     }
 ]
 
@@ -65,9 +73,9 @@ const product = new Product({
 const inputsData = [
     {
         placeholder:"Имя",
-        warningText:"Используйте латинские буквы",
+        warningText:"Укажите имя",
         id: "name_input",
-        label: ''
+        label: '',
     },
     {
         placeholder:"Фамилия",
@@ -78,7 +86,7 @@ const inputsData = [
     {
         placeholder:"Почта",
         warningText:"Проверьте адрес электронной почты",
-        id: "name_input",
+        id: "email_input",
         label: ''
     },
     {
