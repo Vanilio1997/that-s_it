@@ -59,7 +59,6 @@ class Product {
 
     plusPrice(){
         this.price = this.price + 1;
-        console.log(this.price);
     }
 }
 
@@ -70,36 +69,53 @@ const product = new Product({
 
 // Данные для инпутов
 
+
+
 const inputsData = [
     {
         placeholder:"Имя",
         warningText:"Укажите имя",
         id: "name_input",
         label: '',
+        isWarning: false,
+        isChange: false,
+        regex: /^[а-яА-ЯЁё]+$/,
     },
     {
         placeholder:"Фамилия",
         warningText:"Укажите фамилию",
         id: "second_name_input",
-        label: ''
+        label: '',
+        isWarning: false,
+        isChange: false,
+        regex: /^[а-яА-ЯЁё]+$/,
     },
     {
         placeholder:"Почта",
         warningText:"Проверьте адрес электронной почты",
         id: "email_input",
-        label: ''
+        label: '',
+        isWarning: false,
+        isChange: false,
+        regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     },
     {
         placeholder:"Телефон",
         warningText:"Формат: +9 999 999 99 99",
         id: "phone_number_input",
-        label: ''
+        label: '',
+        isWarning: false,
+        isChange: false,
+        regex: /((\+7|7|8)+([0-9]){10})$/,
     },
     {
         placeholder:"Инн",
         warningText:"Формат: 1234567",
         id: "index_input",
-        label: ''   
+        label: '',
+        isWarning: false,
+        isChange: false,
+        regex:  /^[0-9]{10}$/,
     },
 ]
 

@@ -43,8 +43,6 @@ for(let i = 0; i<notAvailableProductsElements.length; i++){
 
 let tag = ""
 
-// let checkName =  !(/[^а-я]/gi.test(tag)) 
-
 const nameInput = document.querySelector("#name_input")
 const secondNameInput = document.querySelector("#second_name_input")
 const emailInput = document.querySelector("#email_input")
@@ -52,9 +50,6 @@ const phoneNumberInput = document.querySelector("#phone_number_input")
 const indexInput = document.querySelector("#index_input")
 
 
-nameInput.addEventListener('input', (e) => {
- 
-});
 
 const inputsElements = [] 
 
@@ -64,85 +59,61 @@ for (let i = 0; i< inputsElements.length; i++){
     const element = document.querySelector(`#${inputsElements[i]}`)
     const placeholder = element.getAttribute("placeholder")
     const label = document.querySelector(`[for="${inputsElements[i]}"]`);
+    const inputObj = compareId(element.id)
     element.addEventListener('input', (e) => {
         if(e.target.value.length > 0 ){
             label.innerHTML = placeholder
+                if(inputObj.isChange){
+                    checkInputValue(e.target.value, element, e.type)
+                }
         }else{
             label.innerHTML = ''
         } 
     });
 }
 
-function checkName(name){
-    const chekResult = !(/[^а-я]/gi.test(name))
+function compareId(id){
+    let currentInput = {}
+    inputsData.forEach(inputInfo => {
+        if(id === inputInfo.id){
+            currentInput = inputInfo
+        }
+    })
+    return currentInput
+}
+
+
+function checkInputValue(inputText, element, eventType){
+    console.log(eventType);
+    let inputObj = compareId(element.id)
+    const chekResult = inputObj.regex.test(inputText);
+    let div = document.createElement("div");
+    div.className = "inputs_warning_text";
+    div.innerHTML = inputObj.warningText;
     if(chekResult){
-        nameInput.classList.remove("red_warning")
+        element.classList.remove("red_warning")
+        div.style.backgroundColor = "red";
+        element.nextSibling.remove()
+        inputObj.isWarning = false
+        if(eventType === "change"){
+            inputObj.isChange = false
+        }
     }else{
-        nameInput.classList.add("red_warning")
-        let div = document.createElement("div");
-        div.className = "inputs_warning_text";
-        div.innerHTML = "Укажите имя";
-        nameInput.after(div)
+        if(!inputObj.isWarning){
+            element.classList.add("red_warning")
+            element.after(div)
+            inputObj.isWarning = true
+            if(eventType === "change"){
+                inputObj.isChange = true
+            }
+        }
     }
-}
 
-function checkSecondName(name){
-    const chekResult = !(/[^а-я]/gi.test(name))
-    if(chekResult){
-        secondNameInput.classList.remove("red_warning")
-    }else{
-        secondNameInput.classList.add("red_warning")
-        let div = document.createElement("div");
-        div.className = "inputs_warning_text";
-        div.innerHTML = "Укажите фамилию";
-        secondNameInput.after(div)
-    }
-}
-
-function checkEmail(email){
-   const chekResult = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)  
-   if(chekResult){
-        emailInput.classList.remove("red_warning")
-    }else{
-        emailInput.classList.add("red_warning")
-        let div = document.createElement("div");
-        div.className = "inputs_warning_text";
-        div.innerHTML = "Проверьте адрес электронной почты";
-        emailInput.after(div)
-}
-}
-function checkPhoneNumber(number){
-    const chekResult = /((\+7|7|8)+([0-9]){10})$/.test(number);
-    if(chekResult){
-        phoneNumberInput.classList.remove("red_warning")
-    }else{
-        phoneNumberInput.classList.add("red_warning")
-        let div = document.createElement("div");
-        div.className = "inputs_warning_text";
-        div.innerHTML = "Формат: +9 999 999 99 99";
-        phoneNumberInput.after(div)
-    }
-}
-
-function checkIndex(index){
-    const chekResult = /^[0-9]{10}$/.test(index);
-    
-    if(chekResult){
-        indexInput.classList.remove("red_warning")
-    }else{
-        indexInput.classList.add("red_warning")
-        let div = document.createElement("div");
-        div.className = "inputs_warning_text";
-        div.innerHTML = "Формат: 1234567";
-        indexInput.after(div)
-    }
 }
 
 
-nameInput.addEventListener("change", (e) => checkName(e.target.value))
-secondNameInput.addEventListener("change", (e) => checkSecondName(e.target.value))
-emailInput.addEventListener("change" , (e)=> checkEmail(e.target.value))
-phoneNumberInput.addEventListener("change", (e)=> checkPhoneNumber(e.target.value))
-indexInput.addEventListener("change", (e)=> checkIndex(e.target.value))
-
-data[1].plus()
+nameInput.addEventListener("change", (e) => checkInputValue(e.target.value, nameInput ,e.type))
+secondNameInput.addEventListener("change", (e) => checkInputValue(e.target.value, secondNameInput))
+emailInput.addEventListener("change" , (e)=> checkInputValue(e.target.value, emailInput ))
+phoneNumberInput.addEventListener("change", (e)=> checkInputValue(e.target.value,phoneNumberInput999))
+indexInput.addEventListener("change", (e)=> checkInputValue(e.target.value, indexInput))

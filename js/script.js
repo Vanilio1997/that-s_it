@@ -74,7 +74,6 @@ data.forEach(({productName, productInfo, marcetPlaceName, companyName, inStoke, 
 
 
 for (let i = 0; i< inputsData.length; i++){
-    console.log(inputsData[i].id);
     const maxLength = inputsData[i].id === "index_input" ? 10 : null 
     let input = `
                 <div class="flex_column gap_2 full_width color_gray">
@@ -92,10 +91,6 @@ for (let i = 0; i< inputsData.length; i++){
 }
 
 
-function isEmail(){
-    console.log('Hello');
-}
-
 document.querySelector(".products_list_container").innerHTML = products
 document.querySelector(".not_available_list_container").innerHTML = notAvailableProducts
 document.querySelector(".input_top_container").innerHTML = inputTop
@@ -105,5 +100,4 @@ document.querySelector(".input_bottom_container").innerHTML = inputBottom
 
 window.addEventListener('resize' , ()=>{
     pageWidth = window.innerWidth
-    console.log(window.innerWidth);
 })
