@@ -17,11 +17,18 @@ const data = [
         picture: "./logos./Tshirt.png",
         plus_id: "plus_id_1",
         minus_id: "minus_id_1",
+        arrival_logo_id: "arrival_id_1",
         plus(){
+            if(this.inStoke){
             this.weHave++
+            this.inStoke--
+            }
         },
         minus(){
-            this.weHave--
+            if(this.weHave){
+                this.weHave--
+                this.inStoke++
+            }
         }
     },
     {
@@ -33,18 +40,25 @@ const data = [
         inStokeId: "InStoke_id_2",
         weHave:0,
         weHaveId:"weHave_id_2" , 
-        price: 2100047,
-        discountPrice: 2300047,
+        price: 2300047,
+        discountPrice: 2100047,
         currency: "com",
         id:2,
         picture: "./logos./Iphone_case.png",
         plus_id: "plus_id_2",
         minus_id: "minus_id_2",
+        arrival_logo_id: "arrival_id_1",
         plus(){
+            if(this.inStoke){
             this.weHave++
+            this.inStoke--
+            }
         },
         minus(){
-            this.weHave--
+            if(this.weHave){
+                this.weHave--
+                this.inStoke++
+            }
         }
     },
     {
@@ -56,42 +70,30 @@ const data = [
         inStokeId: "InStoke_id_3",
         weHave:0,
         weHaveId:"weHave_id_3",
-        price: 494,
-        discountPrice: 950,
+        price: 950,
+        discountPrice: 494,
         currency: "com",
         id:3,
         picture: "./logos./Pencils.png",
         plus_id: "plus_id_3",
         minus_id: "minus_id_3",
+        arrival_logo_id: "arrival_id_1",
         plus(){
+            if(this.inStoke){
             this.weHave++
+            this.inStoke--
+            }
         },
         minus(){
-            this.weHave--
+            if(this.weHave){
+                this.weHave--
+                this.inStoke++
+            }
         }
     }
 ]
 
-
-
-class Product {
-    constructor(options){
-        this.price = options.price
-    }
-
-    plusPrice(){
-        this.price = this.price + 1;
-    }
-}
-
-
-const product = new Product({
-    price: 0,
-})
-
 // Данные для инпутов
-
-
 
 const inputsData = [
     {
