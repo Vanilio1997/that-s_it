@@ -4,8 +4,20 @@ const data = [
     {
         productName: "Футболка UZcotton мужская",
         productInfo: ["Цвет: белый" ,"Размер: 56"],
-        marcetPlaceName:"Коледино WB",
-        companyName: "ООО Вайлдберриз",
+        marketPlaceName:"Коледино WB",
+        companyInfo:{
+            name: "ООО Вайлдберриз",
+            ogrn: 5423542352234,
+            adress: "129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34",
+            id: "company_id_1",
+        },
+        discountInfo:{
+            id: "discount_id_1",
+            discount: [
+                {type:"Скидка 55%" , price: "−300 сом"},
+                {type:"Скидка покупателя 10%" , price: "−30 сом"}
+            ]
+        },
         inStoke:3,
         inStokeId: "InStoke_id_1",
         weHave:0,
@@ -17,6 +29,8 @@ const data = [
         picture: "./logos./Tshirt.png",
         plus_id: "plus_id_1",
         minus_id: "minus_id_1",
+        infoLogoId: "infoLogo_id_1",
+        discountPriceId: "discountPrice_Id_1",
         arrival_logo_id: "arrival_id_1",
         plus(){
             if(this.inStoke){
@@ -34,8 +48,20 @@ const data = [
     {
         productName: "Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe",
         productInfo: ["Цвет: прозрачный"],
-        marcetPlaceName:"Коледино WB",
-        companyName: "OOO Мегапрофстиль",
+        marketPlaceName:"Коледино WB",
+        companyInfo:{
+            name: "OOO Мегапрофстиль",
+            ogrn: 5423542352234,
+            adress: "129337, Самара, улица Синяя Сосна, 2, корпус 2, стр. 3, помещение 54, офис 14",
+            id: "company_id_2",
+        },
+        discountInfo:{
+            id: "discount_id_2",
+            discount: [
+                {type:"Скидка 55%" , price: "−300 сом"},
+                {type:"Скидка покупателя 10%" , price: "−30 сом"}
+            ]
+        },
         inStoke:500,
         inStokeId: "InStoke_id_2",
         weHave:0,
@@ -47,6 +73,8 @@ const data = [
         picture: "./logos./Iphone_case.png",
         plus_id: "plus_id_2",
         minus_id: "minus_id_2",
+        infoLogoId: "infoLogo_id_2",
+        discountPriceId: "discountPrice_Id_2",
         arrival_logo_id: "arrival_id_1",
         plus(){
             if(this.inStoke){
@@ -64,8 +92,20 @@ const data = [
     {
         productName: `Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell `,
         productInfo: [],
-        marcetPlaceName:"Коледино WB",
-        companyName: "ООО Вайлдберриз",
+        marketPlaceName:"Коледино WB",
+        companyInfo:{
+            name: "ООО Вайлдберриз",
+            ogrn: 5423542352234,
+            adress: "129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34",
+            id: "company_id_3",
+        },
+        discountInfo:{
+            id: "discount_id_3",
+             discount: [
+                {type:"Скидка 55%" , price: "−300 сом"},
+                {type:"Скидка покупателя 10%" , price: "−30 сом"}
+            ]
+        },
         inStoke:3,
         inStokeId: "InStoke_id_3",
         weHave:0,
@@ -77,6 +117,8 @@ const data = [
         picture: "./logos./Pencils.png",
         plus_id: "plus_id_3",
         minus_id: "minus_id_3",
+        infoLogoId: "infoLogo_id_3",
+        discountPriceId: "discountPrice_Id_3",
         arrival_logo_id: "arrival_id_1",
         plus(){
             if(this.inStoke){

@@ -7,7 +7,7 @@ let inputBottom = '';
 
 
 
-data.forEach(({productName, productInfo, marcetPlaceName, companyName, inStoke, weHave, price, discountPrice, currency,picture, id , plus_id, minus_id, inStokeId,arrival_logo_id, weHaveId})=>{
+data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, weHave, price, discountPrice, currency,picture,discountInfo, id , plus_id, minus_id, inStokeId,arrival_logo_id, weHaveId, infoLogoId, discountPriceId})=>{
     let isProductInfo = () => productInfo.length > 0 ? productInfo : ''
     let discountPrcieClass = () => String(discountPrice).length > 3 ? "long_discount_price" : "short_discpount_price" 
     let splitPrice = price.toLocaleString() 
@@ -27,10 +27,17 @@ data.forEach(({productName, productInfo, marcetPlaceName, companyName, inStoke, 
                             <div class="product_name">${productName}</div>
                             <div class="product_info">${isProductInfo()}</div>
                             <div class="flex_column company_info_container">
-                                <div class="marcetPlaceName"> ${marcetPlaceName}</div>
+                                <div class="marketPlaceName"> ${marketPlaceName}</div>
                                 <div class="flex_row company_name_container">       
-                                    <div class="product_company_name">${companyName}</div>
-                                    <button class="logo_btn more_company_info_btn"><img src="./logos/more_company_info.svg"/> </button>
+                                    <div class="product_company_name">${companyInfo.name}</div>
+                                    <button id=${infoLogoId} class="logo_btn more_company_info_btn">
+                                        <img src="./logos/more_company_info.svg"/>
+                                        <div id=${companyInfo.id} class="hover_company_info_container hide_element flex_column gap_8">
+                                            <div class="font_weight_700">${companyInfo.name}</div>
+                                            <div>${companyInfo.ogrn}</div>
+                                            <div>${companyInfo.adress} </div>
+                                        </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -59,8 +66,20 @@ data.forEach(({productName, productInfo, marcetPlaceName, companyName, inStoke, 
                             </div>    
                         </div>
                         <div class="product_price_info_container"> 
-                            <div class="discountPrice_price"><span class=${discountPrcieClass()}> ${splitDiscountPrice} </span> <span class="product_currency">${currency} </span></div>
-                            <div><span class="prodcut_price"> ${splitPrice} ${currency} </span></div>
+                            <div class="discountPrice_price"><span class=${discountPrcieClass()}> ${splitDiscountPrice} </span> <span class="product_currency">${currency}</span></div>
+                            <div>
+                                <span id=${discountPriceId} class="prodcut_price"> ${splitPrice} ${currency}</span>
+                                <div id=${discountInfo.id} class="hidden_discount_info hide_element flex_column gap_8">
+                                    <div class="flex_row flex_space_beetwen"> 
+                                        <div>${discountInfo.discount[0].type} </div>
+                                        <div class="black_color">${discountInfo.discount[0].price} </div>
+                                    </div>
+                                    <div class="flex_row flex_space_beetwen"> 
+                                        <div>${discountInfo.discount[1].type} </div>
+                                        <div class="black_color">${discountInfo.discount[1].price} </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>`;

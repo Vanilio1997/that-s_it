@@ -34,6 +34,7 @@
                     <a class="header_icon">
                         <div class="quantity_circle_container">
                             <img class="backet_logo" src="./logos/basket_icon.svg" /> 
+                            <div class="quantity_circle">3</div>
                         </div> 
                         <span>Корзина</span>
                     </a>
@@ -97,13 +98,10 @@
                                                 </div>
                                                 <div>Бесплатно</div>
                                                 <div class="arrival_date"></div>
-                                                <!-- <div class="arrival_date">
-                                                    <div> <img src="./logos/Iphone_case.png" /></div>
-                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="refund_delivery_container padding_l_24 refund_info_container">
+                                    <div  class="refund_delivery_container padding_l_24 refund_info_container">
                                         <div> 
                                             <div class="circle_logo">
                                                 <img src="./logos/icon.svg" alt="" /> 
@@ -112,11 +110,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="refund_warning"> Обратная доставка товаров на склад при отказе — 
-                                            <span class="green_text">бесплатно</span>
-                                            <div class="hover_refund_info">
-                                                Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно
-                                            </div>    
+                                        <div> Обратная доставка товаров на склад при отказе — 
+                                            <span id="left_side_hover_warning_element" class="green_text refund_warning">бесплатно
+                                                <div class="hover_refund_info hide_element">
+                                                    Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно
+                                                </div> 
+                                            </span>    
                                         </div>                                    
                                     </div>
                                 </div>
@@ -188,7 +187,7 @@
                                     <div >Бишкек, улица Ахматбека Суюмбаева, 12/1</div>
                                     <div class="arrive_date">5–8 фев</div>
                                 </div>  
-                                <div class="refund_info_container padding_l_24 gray_orfer_info_container">
+                                <div class="refund_info_container refund_warning  padding_l_24 gray_orfer_info_container">
                                     <div> 
                                         <div class="circle_logo">
                                             <img src="./logos/icon.svg" alt="" /> 
@@ -197,8 +196,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div> Обратная доставка товаров на склад при отказе — </br>
-                                         <span class="green_text">бесплатно</span>
+                                    <div>
+                                        <div> Обратная доставка товаров на склад при отказе — </br>
+                                            <span id="right_side_hover_warning_element" class="green_text">бесплатно</span>
+                                        </div>
+                                    </div>
+                                    <div class="hover_refund_info hide_element">
+                                        Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно
                                     </div>
                                 </div>
                             </div>

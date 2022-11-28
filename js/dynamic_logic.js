@@ -10,10 +10,10 @@ function showProductLikeDelete(index){
     deletelikeEl[index].classList.remove("hide_element")
 }
 
-function hideProductLikeDelete(index){
-    inStoksEl[index].classList.add("hide_element")
-    deletelikeEl[index].classList.add("hide_element")
-}
+    function hideProductLikeDelete(index){
+        inStoksEl[index].classList.add("hide_element")
+        deletelikeEl[index].classList.add("hide_element")
+    }
 
 
 for(let i = 0; i<productsElements.length; i++){
@@ -120,7 +120,6 @@ const minusButtons = document.querySelectorAll(".minus_btn")
 function plusProduct(id){
     data.forEach(product => {
         if(product.plus_id === id){
-            console.log(product);
             product.plus()
             document.querySelector(`#${product.weHaveId}`).innerHTML = product.weHave
             document.querySelector(`#${product.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
@@ -177,17 +176,13 @@ function showPrice(){
 }
 showPrice()
 
-// Скрытие элементов из корзины
-
+// Скрытие/показ элементов из корзины
 let isShow = true
 const showBtn  = document.querySelector("#show_products")
 const hideBtn  = document.querySelector("#hide_products")
 const hiddenProductsInfo = document.querySelector("#hidden_products_info")
 
 const showingProductsElelemnts = document.querySelectorAll(".show_products_elements");
-
-
-
 
 function hideProducts(){
     showingProductsElelemnts.forEach(element =>{
@@ -217,7 +212,7 @@ function showProducts(){
 showBtn.addEventListener('click' ,showProducts)
 hideBtn.addEventListener('click' ,hideProducts)
 
-// Скрытие  отсутсвующих товаров 
+// Скрытие/показ  отсутсвующих товаров 
 
 const notAvailableProductsList = document.querySelector(".not_available_list_container")
 const hideNotAvailableProductsBtn = document.querySelector("#hide_notAvailable_products")
@@ -238,3 +233,89 @@ function showNotAvailableProducts(){
 hideNotAvailableProductsBtn.addEventListener('click' , hideNotAvailableProducts)
 showNotAvailableProductsBtn.addEventListener('click' , showNotAvailableProducts)
 
+//hover эффекты для различных элементов на странице
+
+//1. hover в котором написано об бесплатном возврате
+
+{
+    const leftSideWarningText = document.querySelector("#left_side_hover_warning_element")
+    const rightSideWarningText = document.querySelector("#right_side_hover_warning_element")
+    const refundWindows =  document.querySelectorAll(".hover_refund_info")
+
+    function showHiddenElement(index){
+            if(index === 0){
+                refundWindows[index].classList.remove("hide_element")   
+            }else{
+                refundWindows[index].classList.remove("hide_element")
+            }
+    }
+
+    function hideHiddenElement(index){
+        if(index === 0){
+            refundWindows[index].classList.add("hide_element")   
+        }else{
+            refundWindows[index].classList.add("hide_element")
+        }
+    }
+    
+    leftSideWarningText.addEventListener("mouseenter" , showHiddenElement.bind(null , 0))
+    leftSideWarningText.addEventListener("mouseleave" , hideHiddenElement.bind(null , 0))
+    rightSideWarningText.addEventListener("mouseenter" , showHiddenElement.bind(null , 1))
+    rightSideWarningText.addEventListener("mouseleave" , hideHiddenElement.bind(null , 1))
+}
+
+//2 hover для элементов в корзине скидки и названия компании
+
+{
+const companiesInfo =  document.querySelectorAll(".more_company_info_btn")
+const discountPricesInfo = document.querySelectorAll(".prodcut_price")
+
+function showCompanyInfo(id){
+    data.forEach(product =>{
+        if(product.infoLogoId === id){
+            document.querySelector(`#${product.companyInfo.id}`).classList.remove("hide_element")
+        }
+    })
+}
+
+function hideCompanyInfo(id){
+    data.forEach(product =>{
+        console.log(id);
+        if(product.infoLogoId === id){
+            document.querySelector(`#${product.companyInfo.id}`).classList.add("hide_element")
+        }
+    })
+}
+
+companiesInfo.forEach(companyInfo =>{
+    companyInfo.addEventListener("mouseenter" , () => showCompanyInfo(companyInfo.id))
+    companyInfo.addEventListener("mouseleave" , () => hideCompanyInfo(companyInfo.id))
+})
+
+function showDiscountInfo(id){
+    data.forEach(product =>{
+        if(product.discountPriceId === id){
+            document.querySelector(`#${product.discountInfo.id}`).classList.remove("hide_element")
+        }
+    })
+}
+function hideDiscountInfo(id){
+    data.forEach(product =>{
+        if(product.discountPriceId === id){
+            document.querySelector(`#${product.discountInfo.id}`).classList.add("hide_element")
+        }
+    })
+}
+
+
+
+discountPricesInfo.forEach(discountPrice =>{
+    discountPrice.addEventListener("mouseenter" , () => showDiscountInfo(discountPrice.id))
+    discountPrice.addEventListener("mouseleave" , () => hideDiscountInfo(discountPrice.id))
+})
+
+
+
+
+
+}
