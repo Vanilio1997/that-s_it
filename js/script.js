@@ -4,6 +4,8 @@ let notAvailableProducts = '';
 let arraivalPictures = '';
 let inputTop = '';
 let inputBottom = '';
+let cardRadionBtn =  '';
+let adressRadioBtn = '';
 
 
 
@@ -119,6 +121,8 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
 
 
 
+
+
 for (let i = 0; i< inputsData.length; i++){
     const maxLength = inputsData[i].id === "index_input" ? 10 : null 
     let input = `
@@ -136,13 +140,45 @@ for (let i = 0; i< inputsData.length; i++){
     }
 }
 
+cardRadioBtnData.forEach(card =>{
+
+    cardRadionBtn +=  `<div class="card_container flex_row gap_8">
+                            <div>
+                                <input class="radio_btn" id="${card.id}"  type="radio" name="card" />
+                                <label for="${card.id}">
+                                    <div><img src="${card.picture}"/></div>
+                                    <div>${card.number}</div>
+                                </label>
+                            </div>
+                        </div>
+                        `
+})
+adressRadioBtnData.forEach(adress =>{
+    adressRadioBtn += ` <div class="adress_container flex_row flex_space_beetwen gap_10">
+                            <div>
+                                <input class="radio_btn" id="${adress.id}"  type="radio" name="adress" />
+                                <label for="${adress.id}">
+                                    <div class="changing_card">${adress.adress}</div>
+                                </label>
+                            </div>
+                            <button class="logo_btn margin_t_4">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="black" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 3C0.5 2.72386 0.723858 2.5 1 2.5H15C15.2761 2.5 15.5 2.72386 15.5 3C15.5 3.27614 15.2761 3.5 15 3.5H1C0.723858 3.5 0.5 3.27614 0.5 3Z" "/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.4584 2.5H14.5059L13.6411 13.6926C13.5405 14.9947 12.4546 16 11.1486 16H4.84639C3.54299 16 2.45829 14.9986 2.35435 13.6994L1.4584 2.5ZM2.5416 3.5L3.35117 13.6196C3.41353 14.3992 4.06435 15 4.84639 15H11.1486C11.9322 15 12.5837 14.3968 12.6441 13.6155L13.4256 3.5H2.5416Z"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3.5H5V1.46875C5 0.657582 5.65758 0 6.46875 0H9.53125C10.3424 0 11 0.657582 11 1.46875V3.5ZM6.46875 1C6.20987 1 6 1.20987 6 1.46875V2.5H10V1.46875C10 1.20987 9.79013 1 9.53125 1H6.46875Z" "/>
+                                    </svg>
+                                </button>  
+                        </div>`
+})
+
+
+
 document.querySelector(".products_list_container").innerHTML = products
 document.querySelector(".not_available_list_container").innerHTML = notAvailableProducts
 document.querySelector(".input_top_container").innerHTML = inputTop
 document.querySelector(".input_bottom_container").innerHTML = inputBottom
 document.querySelector(".arrival_date").innerHTML = arraivalPictures
+document.querySelector(".card_pick_container").innerHTML = cardRadionBtn
+document.querySelector(".adresses_container").innerHTML = adressRadioBtn
 
 
-window.addEventListener('resize' , ()=>{
-    pageWidth = window.innerWidth
-})

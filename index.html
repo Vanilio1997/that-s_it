@@ -76,7 +76,7 @@
                                             <div class="delivery_method_container_header_text">
                                                 Способ доставки
                                             </div>
-                                            <button class="logo_btn change_delivery_method_btn">Изменить</button>
+                                            <button class="logo_btn change_adress change_delivery_method_btn">Изменить</button>
                                         </div>
                                         <div class="flex_row delivery_order_info">
                                             <div class="flex_column delivery_order_left">
@@ -123,15 +123,16 @@
                                     <div class="flex_column gap_16">
                                         <div class="flex_row flex_space_beetwen">
                                             <h2>Способ оплаты</h2>
-                                            <button class="logo_btn change_delivery_method_btn">Изменить</button>
+                                            <button class="logo_btn change_card change_delivery_method_btn">Изменить</button>
                                         </div>
                                         <div class="gap_8 flex_row">
-                                            <div class="card_type">
-                                                <img  src="./logos/Vector (2).svg" />
-                                                <img  src="./logos/Vector (1).svg" />
-                                                <img  src="./logos/Vector (3).svg" />
+                                            <div class="changing_card">
+                                                <div class="card_type">
+                                                    <img src="./logos/mir.svg" />                                           
+                                                </div>
+                                                <p>1234 12•• •••• 1234</p>
                                             </div>
-                                            <div class="gap_12 flex_row"><p>1234 12•• •••• 1234</p> <p>01/30</p></div>
+                                            <p>01/30</p>
                                         </div>
                                     </div>
                                     <div class="color_gray">Спишем оплату с карты при получении</div>
@@ -181,10 +182,10 @@
                                     <div class="price_container flex_row">
                                         <div class="delivery_info_header">Доставка в пункт выдачи</div>
                                         <div class="edit_logo">
-                                            <button class="logo_btn"> <img src="./logos/Edit.svg" alt="edit"></button>
+                                            <button class="logo_btn change_adress"> <img src="./logos/Edit.svg" alt="edit"></button>
                                         </div>
                                     </div>  
-                                    <div >Бишкек, улица Ахматбека Суюмбаева, 12/1</div>
+                                    <div class="changing_adress">Бишкек, улица Ахматбека Суюмбаева, 12/1</div>
                                     <div class="arrive_date">5–8 фев</div>
                                 </div>  
                                 <div class="refund_info_container refund_warning  padding_l_24 gray_orfer_info_container">
@@ -211,16 +212,16 @@
                                     <div class="price_container flex_row">
                                         <div class="delivery_info_header">Оплата картой</div>
                                         <div class="edit_logo">
-                                            <button class="logo_btn"> <img src="./logos/Edit.svg" alt="edit"></button>
+                                            <button class="change_card logo_btn"> <img src="./logos/Edit.svg" alt="edit"></button>
                                         </div> 
                                     </div>
-                                    <div class="gap_8 flex_row">
-                                        <div class="card_type">
-                                            <img  src="./logos/Vector (2).svg" />
-                                            <img  src="./logos/Vector (1).svg" />
-                                            <img  src="./logos/Vector (3).svg" />
+                                    <div class="card_">
+                                        <div  class="changing_card gap_8 flex_row">
+                                            <div class="card_type">
+                                                <img src="./logos/mir.svg"/>
+                                            </div>
+                                            <div class="card_number">1234 12•• •••• 1234</div>
                                         </div>
-                                        <div class="card_number">1234 12•• •••• 1234</div>
                                     </div>
                                 </div>
                                 <div>
@@ -243,7 +244,37 @@
                         </div>
                     </div>
                 </div>
-            </div>     
+            </div>
+                <div id="card_modal_window" class="modal_window_container card_modal_window_container hide_element">
+                    <div class="modal_window_header flex_row flex_space_beetwen full_width">
+                        <div class="modal_header_text">Способ оплаты</div>                   
+                        <button id="close_card_modal" class="logo_btn"><img src="./logos/close.svg" /></button>            
+                    </div>
+                    <div class="card_pick_container flex_column gap_16"></div>
+                    <div>
+                        <button id="card_modal_btn" class="modal_window_btn">Выбрать</button>
+                    </div>
+                </div>
+                <div id="adress_modal_window" class="adress_modal_window_container modal_window_container">
+                    <div class="modal_window_header flex_row flex_space_beetwen full_width">
+                        <div class="modal_header_text">Способ оплаты</div>                   
+                        <button id="close_adress_modal" class="logo_btn"><img src="./logos/close.svg" /></button>   
+                    </div>
+                    <div class="flex_row gap_8 full_width btn_modal_adress_container">
+                        <button class="tab_modal_adress_btn tab_modal_adress_btn_active full_width">В пункт выдачи</button>
+                        <button class="tab_modal_adress_btn full_width">Курьером</button>
+                    </div>
+                    <div>
+                         <h5 class="margin_b_12">Мои адресса</h5>
+                         <div>
+                            <div class="adresses_container flex_column right_side_hover_warning_element gap_20"></div>
+                         </div>
+                    </div>
+                    <div>
+                        <button id="adress_modal_btn" class="modal_window_btn">Выбрать</button>
+                    </div>
+                </div>
+
         </main>
         <footer class="footer">
             <div class="footer_container flex_column gap_40">

@@ -267,55 +267,158 @@ showNotAvailableProductsBtn.addEventListener('click' , showNotAvailableProducts)
 //2 hover для элементов в корзине скидки и названия компании
 
 {
-const companiesInfo =  document.querySelectorAll(".more_company_info_btn")
-const discountPricesInfo = document.querySelectorAll(".prodcut_price")
+    const companiesInfo =  document.querySelectorAll(".more_company_info_btn")
+    const discountPricesInfo = document.querySelectorAll(".prodcut_price")
 
-function showCompanyInfo(id){
-    data.forEach(product =>{
-        if(product.infoLogoId === id){
-            document.querySelector(`#${product.companyInfo.id}`).classList.remove("hide_element")
-        }
+    function showCompanyInfo(id){
+        data.forEach(product =>{
+            if(product.infoLogoId === id){
+                document.querySelector(`#${product.companyInfo.id}`).classList.remove("hide_element")
+            }
+        })
+    }
+
+    function hideCompanyInfo(id){
+        data.forEach(product =>{
+            console.log(id);
+            if(product.infoLogoId === id){
+                document.querySelector(`#${product.companyInfo.id}`).classList.add("hide_element")
+            }
+        })
+    }
+
+    companiesInfo.forEach(companyInfo =>{
+        companyInfo.addEventListener("mouseenter" , () => showCompanyInfo(companyInfo.id))
+        companyInfo.addEventListener("mouseleave" , () => hideCompanyInfo(companyInfo.id))
     })
+
+    function showDiscountInfo(id){
+        data.forEach(product =>{
+            if(product.discountPriceId === id){
+                document.querySelector(`#${product.discountInfo.id}`).classList.remove("hide_element")
+            }
+        })
+    }
+    function hideDiscountInfo(id){
+        data.forEach(product =>{
+            if(product.discountPriceId === id){
+                document.querySelector(`#${product.discountInfo.id}`).classList.add("hide_element")
+            }
+        })
+    }
+
+    discountPricesInfo.forEach(discountPrice =>{
+        discountPrice.addEventListener("mouseenter" , () => showDiscountInfo(discountPrice.id))
+        discountPrice.addEventListener("mouseleave" , () => hideDiscountInfo(discountPrice.id))
+    })
+
 }
 
-function hideCompanyInfo(id){
-    data.forEach(product =>{
-        console.log(id);
-        if(product.infoLogoId === id){
-            document.querySelector(`#${product.companyInfo.id}`).classList.add("hide_element")
-        }
+
+//Модальное окно для изменения банковской карты и изменение карты на странице, в зависимости от выбранной карты
+{
+    const ourCards = document.getElementsByName('card');
+    const changeCardBtn = document.querySelector("#card_modal_btn")
+    const openModalBtns = document.querySelectorAll(".change_card")
+    const closeModalBtn = document.querySelector("#close_card_modal")
+    const cardModalWindow = document.querySelector("#card_modal_window")
+    const changingElements = document.querySelectorAll(".changing_card")
+
+
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click' , ()=> cardModalWindow.classList.remove("hide_element"))
     })
+    closeModalBtn.addEventListener('click', ()=> cardModalWindow.classList.add("hide_element"))
+
+
+    function changeCard(){
+        let checkboxId = null
+        let newCardInfo 
+        ourCards.forEach(card =>{
+            if(card.checked){
+                checkboxId = card.id
+            }
+        })
+
+        if(checkboxId){
+            cardRadioBtnData.forEach(cardInfo => {
+                if(cardInfo.id === checkboxId){
+                    newCardInfo = cardInfo
+                }
+            })
+            changingElements.forEach(changingElement=>{
+
+                changingElement.innerHTML = `
+                    <div class="card_type">
+                        <img src="${newCardInfo.picture}"/>
+                    </div>
+                    <div class="card_number">${newCardInfo.number}</div>
+                `
+            })
+        }
+        cardModalWindow.classList.add("hide_element")
+    }
+
+    changeCardBtn.addEventListener("click" ,changeCard)
 }
 
-companiesInfo.forEach(companyInfo =>{
-    companyInfo.addEventListener("mouseenter" , () => showCompanyInfo(companyInfo.id))
-    companyInfo.addEventListener("mouseleave" , () => hideCompanyInfo(companyInfo.id))
+//Модальное окно для изменения адресса  и изменение адресса на странице, в зависимости от выбранного адресса
+
+
+{
+    const ourAdresses = document.getElementsByName("adress");
+    const changeAdressBtn = document.querySelector("#adress_modal_btn")
+    const openModalBtns = document.querySelectorAll(".change_adress")
+    const closeModalBtn = document.querySelector("#close_adress_modal")
+    const adressModalWindow = document.querySelector("#adress_modal_window")
+    const changingElements = document.querySelectorAll(".changing_adress")
+
+
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click' , ()=> adressModalWindow.classList.remove("hide_element"))
+    })
+    closeModalBtn.addEventListener('click', ()=> adressModalWindow.classList.add("hide_element"))
+
+    function changeCard(){
+        let checkboxId = null
+        let newAdressInfo 
+        ourAdresses.forEach(card =>{
+            if(card.checked){
+                checkboxId = card.id
+            }
+        })
+
+        if(checkboxId){
+            adressRadioBtnData.forEach(adressInfo => {
+                if(adressInfo.id === checkboxId){
+                    newAdressInfo = adressInfo
+                }
+            })
+            changingElements.forEach(changingElement=>{
+
+                changingElement.innerHTML = `${newAdressInfo.adress}`
+            })
+        }
+        adressModalWindow.classList.add("hide_element")
+    }
+
+    changeAdressBtn.addEventListener("click" ,changeCard)
+}
+
+
+//Изменение табов для кнопок в модальном окне 
+
+const tabBtns = document.querySelectorAll(".tab_modal_adress_btn")
+
+function changeTab() {
+    tabBtns.forEach(btn =>{
+        btn.classList.remove("tab_modal_adress_btn_active")
+    })
+    this.classList.add("tab_modal_adress_btn_active")
+}
+
+
+tabBtns.forEach( btn =>{
+    btn.addEventListener("click" ,  changeTab)
 })
 
-function showDiscountInfo(id){
-    data.forEach(product =>{
-        if(product.discountPriceId === id){
-            document.querySelector(`#${product.discountInfo.id}`).classList.remove("hide_element")
-        }
-    })
-}
-function hideDiscountInfo(id){
-    data.forEach(product =>{
-        if(product.discountPriceId === id){
-            document.querySelector(`#${product.discountInfo.id}`).classList.add("hide_element")
-        }
-    })
-}
-
-
-
-discountPricesInfo.forEach(discountPrice =>{
-    discountPrice.addEventListener("mouseenter" , () => showDiscountInfo(discountPrice.id))
-    discountPrice.addEventListener("mouseleave" , () => hideDiscountInfo(discountPrice.id))
-})
-
-
-
-
-
-}

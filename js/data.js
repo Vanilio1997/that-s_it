@@ -184,3 +184,42 @@ const inputsData = [
         regex:  /^[0-9]{10}$/,
     },
 ]
+
+const cardRadioBtnData = [
+    {
+        id:"radio_btn_1",
+        picture: "./logos/mir.svg",
+        number: "1234 56•• •••• 1234",
+    },
+    {
+        id:"radio_btn_2",
+        picture: "./logos/visa.svg",
+        number: "1234 56•• •••• 1234",
+    },
+    {
+        id:"radio_btn_3",
+        picture: "./logos/mastercard.svg",
+        number: "1234 56•• •••• 1234",
+    },
+    {
+        id:"radio_btn_4",
+        picture: "./logos/maestro.svg",
+        number: "1234 56•• •••• 1234",
+    },
+]
+
+
+const adressRadioBtnData = [
+    {
+        id:"adress_btn_1",
+        adress: "Бишкек, улица Табышалиева, 57"
+    },
+    {
+        id:"adress_btn_2",
+        adress: "Бишкек, улица Жукеева-Пудовкина, 77/1"
+    },
+    {
+        id:"adress_btn_3",
+        adress: "Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1"
+    },
+]
