@@ -337,7 +337,7 @@
 }
 
 
-.but_btn{
+.buy_btn{
     align-items: center;
     padding: 0px 32px 5px;
     width: 100%;
@@ -351,6 +351,10 @@
     border: none;
     cursor: url('./logos/cursor.svg'),auto;;
     color: var(--white-color);
+}
+
+.buy_btn_purple{
+    background: var(--purple-color);
 }
 
 .agree_with_rules_logo{

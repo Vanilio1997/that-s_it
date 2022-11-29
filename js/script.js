@@ -9,16 +9,17 @@ let adressRadioBtn = '';
 
 
 
-data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, weHave, price, discountPrice, currency,picture,discountInfo, id , plus_id, minus_id, inStokeId,arrival_logo_id, weHaveId, infoLogoId, discountPriceId})=>{
+data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, weHave, isChecked, price, discountPrice, currency,picture,discountInfo, id , plus_id, minus_id, inStokeId,arrival_logo_id, weHaveId, infoLogoId, discountPriceId})=>{
     let isProductInfo = () => productInfo.length > 0 ? productInfo : ''
     let discountPrcieClass = () => String(discountPrice).length > 3 ? "long_discount_price" : "short_discpount_price" 
     let splitPrice = price.toLocaleString() 
     let splitDiscountPrice = discountPrice.toLocaleString()
+    
     products += `<div class="product_container flex_row ">
                     <div class="product_type flex_row"> 
                         <div class="flex_row add_product_container "> 
                             <div class="checkbox_flex_container"> 
-                                <input type="checkbox" class="custom_checkbox_pay" id="${id}" >
+                                <input type="checkbox" checked class="custom_checkbox_pay pick_product_checkbox" id="${id}" >
                                 <label for="${id}"/>
                             </div>
                             <div class="prodcut_picture"> 
@@ -85,6 +86,8 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                         </div>
                     </div>
                 </div>`;
+    
+
     notAvailableProducts += `<div class="flex_row notAvailable_product_container">
                                 <div class="notAvailable_product_type flex_row">
                                     <div> <img class="filter_gray" src="${picture}" alt="logo_place"/></div>

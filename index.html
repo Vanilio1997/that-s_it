@@ -50,7 +50,7 @@
                             <div class="inStok_container">
                                 <div class="pick_all_container flex_row">
                                         <div class="show_products_elements checkbox_flex_container" >
-                                            <input type="checkbox" class="custom_checkbox_pay" id="pick_all" >
+                                            <input type="checkbox" checked class="custom_checkbox_pay" id="pick_all" >
                                             <label for="pick_all"/>
                                         </div>
                                         <div  class="show_products_elements full_width">Выбрать все</div>
@@ -227,7 +227,7 @@
                                 <div>
                                     <div class="gray_orfer_info_container">
                                         <div>
-                                            <input type="checkbox" class="custom_checkbox_pay" id="pay_now" >
+                                            <input type="checkbox"  class="custom_checkbox_pay change_bg_checkbox" id="pay_now" >
                                             <label for="pay_now">Списать оплату сразу</label>
                                         </div>
                                         <p>Спишем оплату с карты при получении</p>
@@ -236,7 +236,7 @@
                             </div>
                         </div>
                         <div class="order_btn_container flex_column">
-                            <button class="but_btn">Заказать</button>
+                            <button id="changeable_bg_element" class="buy_btn">Заказать</button>
                                 <div class="agree_with_rules_container flex_row">
                                 <div><img  class="agree_with_rules_logo" src="./logos/Path Copy 2 (Stroke).svg" alt=""></div>
                                 <div class="agree_text"> Соглашаюсь с правилами пользования торговой площадкой и возврата</div>
@@ -255,7 +255,7 @@
                         <button id="card_modal_btn" class="modal_window_btn">Выбрать</button>
                     </div>
                 </div>
-                <div id="adress_modal_window" class="adress_modal_window_container modal_window_container">
+                <div id="adress_modal_window" class="adress_modal_window_container modal_window_container hide_element">
                     <div class="modal_window_header flex_row flex_space_beetwen full_width">
                         <div class="modal_header_text">Способ оплаты</div>                   
                         <button id="close_adress_modal" class="logo_btn"><img src="./logos/close.svg" /></button>   

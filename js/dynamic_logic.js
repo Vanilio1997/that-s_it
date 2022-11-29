@@ -160,11 +160,8 @@ function showPrice(){
     let fullPriceValue = 0
     let discountPriceValue = 0
     let discountValue = 0
-    discount.innerHTML =''
-    discountPrice.innerHTML =''
-    fullPrice.innerHTML = ''
     data.forEach((product) => {
-        if(product.weHave){
+        if(product.weHave && product.isChecked){
             fullPriceValue += product.price * product.weHave
             discountPriceValue += product.discountPrice * product.weHave
             discountValue  -= product.price  * product.weHave  - product.discountPrice * product.weHave
@@ -188,7 +185,7 @@ function hideProducts(){
     showingProductsElelemnts.forEach(element =>{
         element.classList.add("hide_element")
     })
-    showBtn.classList.add("show_element")
+    showBtn.classList.remove("hide_element")
     let prodcutsQuanity = 0
     let price = 0
 
@@ -205,7 +202,7 @@ function showProducts(){
     showingProductsElelemnts.forEach(element =>{
         element.classList.remove("hide_element")
     })
-    showBtn.classList.remove("show_element")
+    showBtn.classList.add("hide_element")
     hiddenProductsInfo.innerHTML = ''
 }
 
@@ -375,9 +372,9 @@ showNotAvailableProductsBtn.addEventListener('click' , showNotAvailableProducts)
 
 
     openModalBtns.forEach(btn => {
-        btn.addEventListener('click' , ()=> adressModalWindow.classList.remove("hide_element"))
+        btn.addEventListener('click' , () => adressModalWindow.classList.remove("hide_element"))
     })
-    closeModalBtn.addEventListener('click', ()=> adressModalWindow.classList.add("hide_element"))
+    closeModalBtn.addEventListener('click', () => adressModalWindow.classList.add("hide_element"))
 
     function changeCard(){
         let checkboxId = null
@@ -417,8 +414,53 @@ function changeTab() {
     this.classList.add("tab_modal_adress_btn_active")
 }
 
-
 tabBtns.forEach( btn =>{
     btn.addEventListener("click" ,  changeTab)
 })
 
+// Логика для чекбокосв в продуктах
+
+const productsCheckbox = document.querySelectorAll(".pick_product_checkbox")
+
+
+function  chooseCheckbox(){
+    data.forEach(product => {
+        if(product.id === this.id){
+            console.log();
+            product.isChecked = this.checked
+        }
+    })
+    showPrice()
+}
+
+productsCheckbox.forEach((element)=>{
+    element.addEventListener("change", chooseCheckbox)
+})
+
+
+
+// Логика для чекбока "выбрать всё"
+
+const pickAllProduct = document.querySelector("#pick_all")
+
+function chooseAllProdcutCheckbox(){
+    data.forEach(product => {
+        product.isChecked = pickAllProduct.checked
+        document.querySelector(`#${product.id}`).checked = pickAllProduct.checked
+    })
+    showPrice()
+}
+
+pickAllProduct.addEventListener("change",chooseAllProdcutCheckbox )
+
+
+// Замена цвета кнопки при изменени значения чекбокса
+
+const changeColorCheckBox = document.querySelector(".change_bg_checkbox")
+const changeableBgBtn = document.querySelector("#changeable_bg_element")
+
+function changeBg(){
+   changeableBgBtn.classList.toggle("buy_btn_purple")
+}
+
+changeColorCheckBox.addEventListener("change", changeBg)
