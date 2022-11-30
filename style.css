@@ -171,6 +171,10 @@
     font-size: 10px;
     line-height: 18px;
 }
+.quantity_circle_header{
+    left: calc(50% - 2em/2 + 1.5em);
+    top: calc(50% - 2em/2 - 1em);
+}
 
 .header_icon{
     font-size: 14px;
@@ -292,6 +296,7 @@
     color: var(--lilac-color);
     border-bottom: 1px dashed #cb11ab33;
     width: 48px;
+    margin-top: 4px;
 }
 
 .gray_orfer_info_container{
@@ -470,6 +475,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 20px;
+    border-top: 1px solid #0000001a;
 }
 
 .product_container{
@@ -648,6 +654,10 @@
 
 .not_available_list_container{
     gap: 20px;
+    border-top: 1px solid #0000001a;
+}
+.grey_line{
+    border-top: 1px solid #0000001a;
 }
 
 .notAvailable_product_container{
@@ -1264,7 +1274,7 @@
         top: 0;
         border-radius: 0;
     }   
-    }
+    
     .rating_modal_container{
         display: flex;
         gap: 8px;
@@ -1273,9 +1283,9 @@
     .modal_window_btn_container{
         width: 100%;
     }
+
     .modal_window_btn{
         width: 100%;
     }
-
 }
 

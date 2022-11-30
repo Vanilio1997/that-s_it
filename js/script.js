@@ -10,7 +10,7 @@ let adressRadioBtn = '';
 
 
 
-data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, weHave, isChecked, price, discountPrice, currency,picture,discountInfo, id , plus_id, minus_id, inStokeId,arrival_logo_id, weHaveId, infoLogoId, discountPriceId,mobId})=>{
+data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, weHave, mobId, price, discountPrice, currency,picture,discountInfo, id , plus_id, minus_id, inStokeId,arrival_logo_id, weHaveId, infoLogoId, discountPriceId,})=>{
     let isProductInfo = () => productInfo.length > 0 ? productInfo : ''
     let discountPrcieClass = () => String(discountPrice).length > 3 ? "long_discount_price" : "short_discpount_price" 
     let splitPrice = price.toLocaleString() 
@@ -94,8 +94,8 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                         <div class="prodcut_picture"> 
                             <img src="${picture}" alt="logo_place"/>
                             <div class="checkbox_flex_container mob_checkbox_product"> 
-                                <input type="checkbox" checked class="custom_checkbox_pay pick_product_checkbox" id="${mobId}" >
-                                <label class="mob_checkbox_product" for="${mobId}"/>
+                                <input type="checkbox" checked class="custom_checkbox_pay pick_product_checkbox" id="${mobId.id}" >
+                                <label class="mob_checkbox_product" for="${mobId.id}"/>
                             </div>
                         </div>
                     </div>
@@ -116,11 +116,11 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                 <div class="flex_row gap_16 flex_space_between full_width"> 
                     <div class="flex_row gap_16">
                         <div class="flex_row counter_container"> 
-                            <div class='minus_btn' id=${minus_id}>-</div>    
-                            <div id=${weHaveId}>${weHave}</div>    
-                            <div class='plus_btn' id=${plus_id} >+</div>    
+                            <div class='minus_btn' id=${mobId.minus_id}>-</div>    
+                            <div id=${mobId.weHaveId}>${weHave}</div>    
+                            <div class='plus_btn' id=${mobId.plus_id} >+</div>    
                         </div>
-                        <div class="center_element"><span id=${inStokeId} class="product_inStoke hide_element">осталось ${inStoke} шт.</span></div>
+                        <div class="center_element"><span id=${mobId.inStokeId} class="product_inStoke hide_element">осталось ${inStoke} шт.</span></div>
                     </div>
                     <div class="flex_row gap_28">
                         <button class="logo_btn"> 
@@ -182,11 +182,12 @@ for (let i = 0; i< inputsData.length; i++){
     const maxLength = inputsData[i].id === "index_input" ? 10 : null 
     let input = `
                 <div class="flex_column gap_2 full_width color_gray">
-                    <label class="height_16" for=${inputsData[i].id}>${inputsData[i].label}</label>
+                    <label class="height_16" for=${inputsData[i].id}></label>
                     <div class="gap_4 ${inputsData[i].class}">
                         <input  maxlength=${maxLength} class="full_width recipient_input_text recipient_input_settings" type="text" placeholder=${inputsData[i].placeholder} id=${inputsData[i].id}></input>
                     </div>
-                </div> 
+                    <div>${inputsData[i]?.label}</div>
+                </div>
                 `
     if(i<2){
         inputTop+= input
@@ -201,7 +202,7 @@ cardRadioBtnData.forEach(card =>{
                             <div>
                                 <input class="radio_btn" id="${card.id}"  type="radio" name="card" />
                                 <label for="${card.id}">
-                                    <div><img src="${card.picture}"/></div>
+                                    <div class="card_type"><img src="${card.picture}"/></div>
                                     <div>${card.number}</div>
                                 </label>
                             </div>
@@ -236,7 +237,6 @@ adressRadioBtnData.forEach(adress =>{
 
 
 document.querySelector(".products_list_container").innerHTML = products + productsMob
-// document.querySelector(".products_list_container").innerHTML =  productsMob
 document.querySelector(".not_available_list_container").innerHTML = notAvailableProducts
 document.querySelector(".input_top_container").innerHTML = inputTop
 document.querySelector(".input_bottom_container").innerHTML = inputBottom

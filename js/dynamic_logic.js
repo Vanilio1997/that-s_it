@@ -116,13 +116,17 @@ function checkInputValue(inputText, element, eventType){
 const plusButtons = document.querySelectorAll(".plus_btn")
 const minusButtons = document.querySelectorAll(".minus_btn")
 
-
+console.log(plusButtons);
 function plusProduct(id){
     data.forEach(product => {
-        if(product.plus_id === id){
+
+        if(product.plus_id === id || product.mobId.plus_id === id ){
             product.plus()
             document.querySelector(`#${product.weHaveId}`).innerHTML = product.weHave
             document.querySelector(`#${product.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
+            document.querySelector(`#${product.mobId.weHaveId}`).innerHTML = product.weHave
+            document.querySelector(`#${product.mobId.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
+
             showPrice()
         }
     })
@@ -130,12 +134,12 @@ function plusProduct(id){
 
 function minusProduct(id){
     data.forEach(product => {
-        if(product.minus_id === id){
+        if(product.minus_id === id || product.mobId.minus_id === id ){
             product.minus()
-
-            console.log(product.inStoke);
             document.querySelector(`#${product.weHaveId}`).innerHTML = product.weHave
             document.querySelector(`#${product.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
+            document.querySelector(`#${product.mobId.weHaveId}`).innerHTML = product.weHave
+            document.querySelector(`#${product.mobId.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
             showPrice()
         }
     })
@@ -424,8 +428,7 @@ const productsCheckbox = document.querySelectorAll(".pick_product_checkbox")
 
 function  chooseCheckbox(){
     data.forEach(product => {
-        if(product.id === this.id){
-            console.log();
+        if(product.id === this.id || product.mobId.id){
             product.isChecked = this.checked
         }
     })
@@ -446,6 +449,7 @@ function chooseAllProdcutCheckbox(){
     data.forEach(product => {
         product.isChecked = pickAllProduct.checked
         document.querySelector(`#${product.id}`).checked = pickAllProduct.checked
+        document.querySelector(`#${product.mobId.id}`).checked = pickAllProduct.checked
     })
     showPrice()
 }
