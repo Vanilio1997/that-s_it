@@ -116,7 +116,7 @@ function checkInputValue(inputText, element, eventType){
 const plusButtons = document.querySelectorAll(".plus_btn")
 const minusButtons = document.querySelectorAll(".minus_btn")
 
-console.log(plusButtons);
+
 function plusProduct(id){
     data.forEach(product => {
 
@@ -281,7 +281,6 @@ showNotAvailableProductsBtn.addEventListener('click' , showNotAvailableProducts)
 
     function hideCompanyInfo(id){
         data.forEach(product =>{
-            console.log(id);
             if(product.infoLogoId === id){
                 document.querySelector(`#${product.companyInfo.id}`).classList.add("hide_element")
             }
@@ -428,9 +427,10 @@ const productsCheckbox = document.querySelectorAll(".pick_product_checkbox")
 
 function  chooseCheckbox(){
     data.forEach(product => {
-        if(product.id === this.id || product.mobId.id){
+        if(product.id === this.id || product.mobId.id === this.id){
             product.isChecked = this.checked
         }
+
     })
     showPrice()
 }
