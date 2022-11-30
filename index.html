@@ -11,23 +11,31 @@
     <div class="container">
         <header class="header">
             <div class="header_container">
-                <div class="company_logoName_container">
-                    <div class="company_logo">
+                <div class="company_logoName_container header_mob">
+                    <div class="company_logo desktop_adaptive">
                         <img src="./logos/burger_menu.svg" alt="logo_place"/>
                     </div>
-                    <div class="company_name">
+                    <div>
+                        <img class="phone_adaptive phone_company_logo_header" src="./logos/mob_logo.svg" alt="logo_place"/>
+                    </div>
+                    <div class="company_name company_name_mob">
                         товары и точка
                     </div>
+                    <div class="phone_adaptive">
+                        <div >
+                            <button class="search_btn search_btn_mob"><img class="search_logo search_logo_mob" src="./logos/Search.svg"  /></button>
+                        </div>
+                    </div> 
                 </div>
-                <div  class="search_container">
-                    <div class="input_container">
+                <div  class="search_container desktop_adaptive ">
+                    <div class="input_header_container">
                         <div class="input_block">
                             <input  class="search_input" placeholder="Я ищу"/>
                         </div>
                         <button class="search_btn"><img class="search_logo" src="./logos/Search.svg"  /></button>
                     </div>
                 </div>    
-                <div class="icons_container flex_row">
+                <div class="icons_container flex_row desktop_adaptive">
                     <div>
                         <a class="header_icon"><img src="./logos/Profile_icon.svg"><span>Профиль</span></a>
                     </div>
@@ -38,16 +46,17 @@
                         </div> 
                         <span>Корзина</span>
                     </a>
-                </div>            
+                </div>         
             </div>
         </header>
         <main class="main">
             <div class="main_container flex_row">
                 <div class="left_main flex_column">
                     <div class="backet flex_column">
-                        <div class="left_header">Корзина</div>
+                        <h1 class="desktop_adaptive left_header">Корзина</h1>
+                        <h2 class="phone_adaptive">Корзина</h2>
                         <div class="flex_column backet_info_container">
-                            <div class="inStok_container">
+                            <div class="inStok_container flex_column gap_16">
                                 <div class="pick_all_container flex_row">
                                         <div class="show_products_elements checkbox_flex_container" >
                                             <input type="checkbox" checked class="custom_checkbox_pay" id="pick_all" >
@@ -71,15 +80,14 @@
                             </div>
                             <div class="flex_column registration_container">
                                 <div class="white_container flex_column delivery_container">
-                                    <div class="flex_column delivery_method_container ">
+                                    <div class="flex_column delivery_method_container">
                                         <div class="flex_row delivery_method_container_header">
-                                            <div class="delivery_method_container_header_text">
-                                                Способ доставки
-                                            </div>
+                                            <h2 class="desktop_adaptive">Способ доставки</h2>
+                                            <h3 class="phone_adaptive">Способ доставки</h3>
                                             <button class="logo_btn change_adress change_delivery_method_btn">Изменить</button>
                                         </div>
-                                        <div class="flex_row delivery_order_info">
-                                            <div class="flex_column delivery_order_left">
+                                        <div class="flex_row delivery_order_info desktop_adaptive">
+                                            <div class="flex_column delivery_order_left ">
                                                 <div class="height_44">Пункт выдачи</div>
                                                 <div>Стоимость доставки</div>
                                                 <div class="height_56">5—6 февраля</div>
@@ -87,7 +95,7 @@
                                             </div>
                                             <div class="flex_column delivery_order_right">
                                                 <div class="flex_column delivery_right_place_container">
-                                                    <div>Бишкек, улица Ахматбека Суюмбаева, 12/1</div>
+                                                    <div class="changing_adress">Бишкек, улица Ахматбека Суюмбаева, 12/1</div>
                                                     <div class="flex_row market_rating_container">
                                                         <div class="flex_row star_rating_container"> 
                                                             <div ><img src="./logos/Star.svg" /></div>   
@@ -97,7 +105,53 @@
                                                     </div>
                                                 </div>
                                                 <div>Бесплатно</div>
-                                                <div class="arrival_date"></div>
+                                                <div class="arrival_date flex_row gap_8"></div>
+                                                <div class="arrival_date flex_row gap_8">
+                                                    <div class="quantity_circle_container">
+                                                        <img style="width: inherit" src="./logos/Iphone_case.png" /> <div class="quantity_circle" id=${arrival_logo_id}><div>12</div></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mob_delivery_method_container phone_adaptive flex_column gap_16">
+                                        <div class="flex_column">
+                                            <div class="font_w_600">Пункт выдачи</div>
+                                            <div class="flex_column delivery_right_place_container">
+                                                <div class="changing_adress">Бишкек, улица Ахматбека Суюмбаева, 12/1</div>
+                                                <div class="flex_row market_rating_container">
+                                                    <div class="flex_row star_rating_container"> 
+                                                        <div ><img src="./logos/Star.svg" /></div>   
+                                                        <span>4.99</span>
+                                                    </div>    
+                                                    <span>Ежедневно с 10 до 21 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex_column">
+                                            <div class="font_w_600">Стоимость доставки</div>
+                                            <div>Бесплатно</div>
+                                        </div>
+                                        <div class="flex_column gap_12">
+                                            <div class="font_w_600">5—6 февраля</div>
+                                            <div class="arrival_date flex_row gap_8">
+                                                <div class="quantity_circle_container">
+                                                    <img style="width: inherit" src="./logos/Iphone_case.png"/> <div class="quantity_circle" id=${arrival_logo_id}><div>12</div></div>
+                                                </div>
+                                                <div class="quantity_circle_container">
+                                                    <img style="width: inherit" src="./logos/Pencils.png"/> <div class="quantity_circle" id=${arrival_logo_id}><div>12</div></div>
+                                                </div>
+                                                <div class="quantity_circle_container">
+                                                    <img style="width: inherit" src="./logos/Tshirt.png"/> <div class="quantity_circle" id=${arrival_logo_id}><div>12</div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex_column gap_12">
+                                            <div class="font_w_600">7—9 февраля</div>
+                                            <div class="arrival_date flex_row gap_8">
+                                                <div class="quantity_circle_container">
+                                                    <img style="width: inherit" src="./logos/Iphone_case.png" /> <div class="quantity_circle" id=${arrival_logo_id}><div>12</div></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -121,7 +175,7 @@
                                 </div>
                                  <div class="flex_column white_container payment_container">
                                     <div class="flex_column gap_16">
-                                        <div class="flex_row flex_space_beetwen">
+                                        <div class="flex_row flex_space_between">
                                             <h2>Способ оплаты</h2>
                                             <button class="logo_btn change_card change_delivery_method_btn">Изменить</button>
                                         </div>
@@ -141,7 +195,7 @@
                                     <div class="flex_row margin_b_10">
                                         <h2>Получатель</h2>
                                     </div>
-                                    <div class="flex_column">
+                                    <div class="flex_column input_container">
                                         <div class="input_top_container flex_row gap_24">
                                          
                                         </div>
@@ -178,7 +232,7 @@
                                 </div>
                             </div>
                             <div class="delivery_info_container flex_column">
-                                <div class="delivary_place">
+                                <div class="delivary_place desktop_adaptive">
                                     <div class="price_container flex_row">
                                         <div class="delivery_info_header">Доставка в пункт выдачи</div>
                                         <div class="edit_logo">
@@ -208,7 +262,7 @@
                                 </div>
                             </div>
                             <div class="card_info_container flex_column">
-                                <div>
+                                <div class="desktop_adaptive">
                                     <div class="price_container flex_row">
                                         <div class="delivery_info_header">Оплата картой</div>
                                         <div class="edit_logo">
@@ -246,17 +300,17 @@
                 </div>
             </div>
                 <div id="card_modal_window" class="modal_window_container card_modal_window_container hide_element">
-                    <div class="modal_window_header flex_row flex_space_beetwen full_width">
+                    <div class="modal_window_header flex_row flex_space_between full_width">
                         <div class="modal_header_text">Способ оплаты</div>                   
                         <button id="close_card_modal" class="logo_btn"><img src="./logos/close.svg" /></button>            
                     </div>
                     <div class="card_pick_container flex_column gap_16"></div>
-                    <div>
+                    <div class="modal_window_btn_container">
                         <button id="card_modal_btn" class="modal_window_btn">Выбрать</button>
                     </div>
                 </div>
                 <div id="adress_modal_window" class="adress_modal_window_container modal_window_container hide_element">
-                    <div class="modal_window_header flex_row flex_space_beetwen full_width">
+                    <div class="modal_window_header flex_row flex_space_between full_width">
                         <div class="modal_header_text">Способ оплаты</div>                   
                         <button id="close_adress_modal" class="logo_btn"><img src="./logos/close.svg" /></button>   
                     </div>
@@ -264,17 +318,33 @@
                         <button class="tab_modal_adress_btn tab_modal_adress_btn_active full_width">В пункт выдачи</button>
                         <button class="tab_modal_adress_btn full_width">Курьером</button>
                     </div>
-                    <div>
+                    <div class="full_height">
                          <h5 class="margin_b_12">Мои адресса</h5>
                          <div>
                             <div class="adresses_container flex_column right_side_hover_warning_element gap_20"></div>
                          </div>
                     </div>
-                    <div>
+                    <div class="modal_window_btn_container">
                         <button id="adress_modal_btn" class="modal_window_btn">Выбрать</button>
                     </div>
                 </div>
-
+                <div class="mob_navbar phone_adaptive">
+                    <a class="navbar_link center_element">
+                        <img src="./logos/home.svg" />
+                    </a>
+                    <a class="navbar_link center_element">
+                        <img src="./logos/search_nav.svg"/>
+                    </a>
+                    <a class="navbar_link center_element">
+                        <img src="./logos/purple_basket.svg"/>
+                    </a>
+                    <a class="navbar_link center_element">
+                        <img src="./logos/Heart.svg"/>
+                    </a>
+                    <a class="navbar_link center_element">
+                        <img src="./logos/profile.svg"/>
+                    </a>
+                </div>
         </main>
         <footer class="footer">
             <div class="footer_container flex_column gap_40">

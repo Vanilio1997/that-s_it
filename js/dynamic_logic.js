@@ -392,7 +392,6 @@ showNotAvailableProductsBtn.addEventListener('click' , showNotAvailableProducts)
                 }
             })
             changingElements.forEach(changingElement=>{
-
                 changingElement.innerHTML = `${newAdressInfo.adress}`
             })
         }
