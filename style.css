@@ -620,6 +620,10 @@
     font-weight: 700;
 }
 
+.mob_like_delete_btns svg:hover{
+    fill: #FF3B30;
+}
+
 .delete_like_btns_container svg:hover{
     fill: #FF3B30;
 }
