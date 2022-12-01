@@ -227,23 +227,12 @@
     font-size: 16px;
     line-height: 24px;
 }
-.order_list_container{
-    gap: 24px;
-}
 
-.order_btn_container{
-    padding: 0px;
-    gap: 12px;
-}
 
 .delivery_info_container{
-    padding: 0px;
     gap: 12px;
-    font-family: Segoe UI;
     font-size: 13px;
-    font-weight: 400;
     line-height: 16px;
-    letter-spacing: 0px;
 }
 .card_info_container{
     padding: 0px;
@@ -1181,7 +1170,29 @@
     .notAvailable_product_type{
         width: 100%;
     }
+    .refund_info_container{
+        margin: 16px 0;
+        padding: 8px 8px 12px;
+    }
+    .mob_main_header_text{
+        padding-left: 16px;
+    }
+    .buy_btn{
+        margin-bottom: 12px;
+    }
+    .delivery_method_container_header{
+        padding: 0 16px;
+    }
 
+    .radio_btn+label {
+        padding-left: 24px;
+        position: relative;
+    }
+    .radio_btn+label::before {
+        position: absolute;
+        top: 4px;
+        left: -3px;
+    }
     .notAbailable_product_name{
         overflow: hidden;
         display: -webkit-box;
@@ -1282,6 +1293,7 @@
     .rating_modal_container{
         display: flex;
         gap: 8px;
+        padding-left: 24px;
     }
 
     .modal_window_btn_container{

@@ -84,7 +84,7 @@ const data = [
         minus_id: "minus_id_2",
         infoLogoId: "infoLogo_id_2",
         discountPriceId: "discountPrice_Id_2",
-        arrival_logo_id: "arrival_id_1",
+        arrival_logo_id: "arrival_id_2",
         mobId:{
             id:"mob_checkbox_id_2",
             plus_id: "mob_plus_id_2",
@@ -143,7 +143,7 @@ const data = [
         minus_id: "minus_id_3",
         infoLogoId: "infoLogo_id_3",
         discountPriceId: "discountPrice_Id_3",
-        arrival_logo_id: "arrival_id_1",
+        arrival_logo_id: "arrival_id_3",
         plus(){
             if(this.inStoke){
             this.weHave++
@@ -209,6 +209,8 @@ const inputsData = [
     },
 ]
 
+
+// Данные о банковских картах
 const cardRadioBtnData = [
     {
         id:"radio_btn_1",
@@ -233,6 +235,7 @@ const cardRadioBtnData = [
 ]
 
 
+// Данные об адрессах
 const adressRadioBtnData = [
     {
         id:"adress_btn_1",

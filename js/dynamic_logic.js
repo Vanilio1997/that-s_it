@@ -126,7 +126,7 @@ function plusProduct(id){
             document.querySelector(`#${product.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
             document.querySelector(`#${product.mobId.weHaveId}`).innerHTML = product.weHave
             document.querySelector(`#${product.mobId.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
-
+            document.querySelector(`#${product.arrival_logo_id}`).innerHTML = `<div>${product.weHave}</div>`
             showPrice()
         }
     })
@@ -135,11 +135,13 @@ function plusProduct(id){
 function minusProduct(id){
     data.forEach(product => {
         if(product.minus_id === id || product.mobId.minus_id === id ){
+            console.log(product.arrival_logo_id);
             product.minus()
             document.querySelector(`#${product.weHaveId}`).innerHTML = product.weHave
             document.querySelector(`#${product.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
             document.querySelector(`#${product.mobId.weHaveId}`).innerHTML = product.weHave
             document.querySelector(`#${product.mobId.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
+            document.querySelector(`#${product.arrival_logo_id}`).innerHTML = `<div>${product.weHave}</div>`
             showPrice()
         }
     })
