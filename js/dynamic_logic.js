@@ -135,7 +135,6 @@ function plusProduct(id){
 function minusProduct(id){
     data.forEach(product => {
         if(product.minus_id === id || product.mobId.minus_id === id ){
-            console.log(product.arrival_logo_id);
             product.minus()
             document.querySelector(`#${product.weHaveId}`).innerHTML = product.weHave
             document.querySelector(`#${product.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
