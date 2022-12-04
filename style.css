@@ -1327,5 +1327,9 @@
     .modal_window_btn{
         width: 100%;
     }
+    .mob_arrival_container .quantity_circle{
+        left: 22px;
+        top: -8px;
+    }
 }
 
