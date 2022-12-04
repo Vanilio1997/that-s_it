@@ -167,10 +167,15 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
 
     notAvailableProducts += `<div class="flex_row notAvailable_product_container">
                                 <div class="notAvailable_product_type flex_row">
-                                    <div> <img class="filter_gray" src="${picture}" alt="logo_place"/></div>
+                                    <div class="prodcut_picture"> 
+                                        <img class="filter_gray mob_notAvailable_product_photo" src="${picture}" alt="logo_place"/>
+                                        <div class="phone_adaptive ${sizeContainerClass()}" >
+                                            <div>${size}</div>
+                                        </div>
+                                    </div>
                                     <div class="notAvailable_product_description flex_column"> 
                                         <div class="notAbailable_product_name">${productName}</div>
-                                        <div class="notAbailable_product_info">${isProductInfo()}</div>
+                                        <div class="notAbailable_product_info">${isProductInfoMob()}</div>
                                     </div>
                                 </div>
                                 <div class="notAbailable_right_block flex_row">

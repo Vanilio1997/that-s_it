@@ -536,9 +536,13 @@
     bottom: 4px;
     background-color: var(--white-color);
     border-radius: 6px;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
+}
+
+.span_border_gray{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .company_info_container{
@@ -1365,6 +1369,9 @@
     }
     .counter_container{
         width: 80px;
+    }
+    .mob_notAvailable_product_photo{
+
     }
 }
 
