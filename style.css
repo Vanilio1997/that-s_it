@@ -519,9 +519,26 @@
     max-width: 275px;
 }
 
+
 .product_info{
     font-size: 13px;
     line-height: 16px;
+    display: flex;
+    gap: 16px;
+}
+
+.size_container{
+    padding: 0px 4px 3px;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--white-color);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .company_info_container{
@@ -776,6 +793,10 @@
     width: 40px;
     height: 56px;
 }
+.arrival_date_mob .quantity_circle_container {
+    width: 40px;
+    height: 56px;
+}
 
 .height_44{
     height: 44px;
@@ -889,6 +910,9 @@
 
 .font_weight_700{
     font-weight: 700;
+}
+.black_color{
+    color: #000;
 }
 
 .recipient_input_settings{
@@ -1328,8 +1352,19 @@
         width: 100%;
     }
     .mob_arrival_container .quantity_circle{
-        left: 22px;
+        left: 25px;
         top: -8px;
+    }
+    .prodcut_picture{
+        height: 106px;
+        width: 80px;
+    }
+    .prodcut_picture img{
+        height: inherit;
+        width: inherit;
+    }
+    .counter_container{
+        width: 80px;
     }
 }
 

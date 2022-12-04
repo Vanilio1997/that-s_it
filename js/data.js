@@ -3,7 +3,10 @@
 const data = [ 
     {
         productName: "Футболка UZcotton мужская",
-        productInfo: ["Цвет: белый" ,"Размер: 56"],
+        productInfo: [
+            { type: "Цвет", info: "белый"},
+            { type: "Размер",info: "56"},
+        ],
         marketPlaceName:"Коледино WB",
         companyInfo:{
             name: "ООО Вайлдберриз",
@@ -18,9 +21,9 @@ const data = [
                 {type:"Скидка покупателя 10%" , price: "−30 сом"}
             ]
         },
-        inStoke:3,
+        inStoke:5,
         inStokeId: "InStoke_id_1",
-        weHave:0,
+        weHave:2,
         weHaveId:"weHave_id_1" , 
         price: 1051,
         discountPrice: 522,
@@ -55,7 +58,9 @@ const data = [
     },
     {
         productName: "Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe",
-        productInfo: ["Цвет: прозрачный"],
+        productInfo: [ 
+            { type: "Цвет", info: "прозрачный"},
+        ],
         marketPlaceName:"Коледино WB",
         companyInfo:{
             name: "OOO Мегапрофстиль",
@@ -72,7 +77,7 @@ const data = [
         },
         inStoke:500,
         inStokeId: "InStoke_id_2",
-        weHave:0,
+        weHave:4,
         weHaveId:"weHave_id_2" , 
         price: 2300047,
         discountPrice: 2100047,
@@ -122,9 +127,9 @@ const data = [
                 {type:"Скидка покупателя 10%" , price: "−30 сом"}
             ]
         },
-        inStoke:3,
+        inStoke:5,
         inStokeId: "InStoke_id_3",
-        weHave:0,
+        weHave:2,
         weHaveId:"weHave_id_3",
         price: 950,
         discountPrice: 494,

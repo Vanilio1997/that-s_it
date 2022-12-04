@@ -1,4 +1,3 @@
-
 let products = '';
 let productsMob = ''
 let notAvailableProducts = '';
@@ -8,14 +7,37 @@ let inputBottom = '';
 let cardRadionBtn =  '';
 let adressRadioBtn = '';
 
+//Работа со списками данных
 
+data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, weHave, mobId, price, discountPrice, currency, picture, discountInfo, id , plus_id, minus_id, inStokeId,arrival_logo_id, weHaveId, infoLogoId, discountPriceId,})=>{
 
-data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, weHave, mobId, price, discountPrice, currency,picture,discountInfo, id , plus_id, minus_id, inStokeId,arrival_logo_id, weHaveId, infoLogoId, discountPriceId,})=>{
-    let isProductInfo = () => productInfo.length > 0 ? productInfo : ''
+    let isProductInfo = () =>{
+        let isProductArr = []
+        productInfo.forEach(({type,info}) => isProductArr.push(`<div>${type}: ${info}</div>`))
+        return isProductArr.join("")
+    }
+    let size = ''
+    let isProductInfoMob = () =>{
+        let isProductArr = []
+
+        productInfo.forEach(({type,info}) => {
+            console.log(type, info);
+            if(type === "Размер"){
+                size = info
+                console.log(size);
+            }else{
+            isProductArr.push(`<div>${type}: ${info}</div>`)
+            }
+        })
+        return isProductArr.join("")
+    }
+    isProductInfoMob()
+    const sizeContainerClass = () => size ? "size_container" : "hide_element"
+    
     let discountPrcieClass = () => String(discountPrice).length > 3 ? "long_discount_price" : "short_discpount_price" 
     let splitPrice = price.toLocaleString() 
     let splitDiscountPrice = discountPrice.toLocaleString()
-    
+    // console.log(size);
     products += `<div class="product_container flex_row desktop_adaptive">
                     <div class="product_type flex_row"> 
                         <div class="flex_row add_product_container "> 
@@ -97,6 +119,9 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                                 <input type="checkbox" checked class="custom_checkbox_pay pick_product_checkbox" id="${mobId.id}" >
                                 <label class="mob_checkbox_product" for="${mobId.id}"/>
                             </div>
+                            <div class=${sizeContainerClass()}>
+                                <div>${size}</div>
+                            </div>
                         </div>
                     </div>
                     <div> 
@@ -106,7 +131,7 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                                 <div><span id=${discountPriceId} class="prodcut_price"> ${splitPrice} ${currency}</span> </div>
                             </div>
                             <div class="product_name">${productName}</div>
-                            <div class="product_info">${isProductInfo()}</div>
+                            <div class="product_info">${isProductInfoMob()}</div>
                             <div class="marketPlaceName"> ${marketPlaceName}</div>
                         <div>
                     </div>
@@ -167,7 +192,7 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                                     </div>
                                 </div>
                             </div> `
-    arraivalPictures += ` <div class="quantity_circle_container">
+    arraivalPictures += ` <div class="quantity_circle_container product_picture_withQuantity">
                             <img style="width: inherit" src=${picture} /> 
                             <div class="quantity_circle" id=${arrival_logo_id}>
                                 <div class="quantity_circle_value">${weHave}</div>
@@ -180,9 +205,6 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
 
 
 
-
-
-
 for (let i = 0; i< inputsData.length; i++){
     const maxLength = inputsData[i].id === "index_input" ? 10 : null 
     let input = `
@@ -191,7 +213,7 @@ for (let i = 0; i< inputsData.length; i++){
                     <div class="gap_4 ${inputsData[i].class}">
                         <input  maxlength=${maxLength} class="full_width recipient_input_text recipient_input_settings" type="text" placeholder=${inputsData[i].placeholder} id=${inputsData[i].id}></input>
                     </div>
-                    <div>${inputsData[i]?.label}</div>
+                    <div class="black_color">${inputsData[i]?.label}</div>
                 </div>
                 `
     if(i<2){
@@ -214,6 +236,7 @@ cardRadioBtnData.forEach(card =>{
                         </div>
                         `
 })
+
 adressRadioBtnData.forEach(adress =>{
     adressRadioBtn += ` <div class="adress_container flex_row flex_space_between gap_10">
                             <div>
@@ -240,12 +263,12 @@ adressRadioBtnData.forEach(adress =>{
 })
 
 
-
 document.querySelector(".products_list_container").innerHTML = products + productsMob
 document.querySelector(".not_available_list_container").innerHTML = notAvailableProducts
 document.querySelector(".input_top_container").innerHTML = inputTop
 document.querySelector(".input_bottom_container").innerHTML = inputBottom
 document.querySelector(".arrival_date").innerHTML = arraivalPictures
+document.querySelector(".arrival_date_mob").innerHTML = arraivalPictures
 document.querySelector(".card_pick_container").innerHTML = cardRadionBtn
 document.querySelector(".adresses_container").innerHTML = adressRadioBtn
 

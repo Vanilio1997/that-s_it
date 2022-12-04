@@ -3,7 +3,7 @@
 const productsElements = document.querySelectorAll(".product_container")
 const inStoksEl = document.querySelectorAll(".product_inStoke")
 const deletelikeEl = document.querySelectorAll(".delete_like_btns_container")
-
+const hiddenData = document.querySelectorAll(".hidden_date")
 
 function showProductLikeDelete(index){
     inStoksEl[index].classList.remove("hide_element")
@@ -21,16 +21,15 @@ for(let i = 0; i<productsElements.length; i++){
     productsElements[i].addEventListener("mouseleave", hideProductLikeDelete.bind(null ,i))
 }
 
-
 // hover эффект для отсутсвующих товаров на складе
 
 const notAvailableProductsElements = document.querySelectorAll(".notAvailable_product_container")
 const notAbailableDeleteLikeEl = document.querySelectorAll(".notAbailable_container_logos")
 
-
 function showAvailableProductLikeDelete(index){
     notAbailableDeleteLikeEl[index].classList.remove("hide_element")
 }
+
 function hideAvailableProductLikeDelete(index){
     notAbailableDeleteLikeEl[index].classList.add("hide_element")
 }
@@ -47,9 +46,6 @@ const secondNameInput = document.querySelector("#second_name_input")
 const emailInput = document.querySelector("#email_input")
 const phoneNumberInput = document.querySelector("#phone_number_input")
 const indexInput = document.querySelector("#index_input")
-
-
-
 const inputsElements = [] 
 
 inputsData.forEach(({id}) => inputsElements.push(id))
@@ -82,7 +78,6 @@ function compareId(id){
     return currentInput
 }
 
-
 function checkInputValue(inputText, element, eventType){
     let inputObj = compareId(element.id)
     const chekResult = inputObj.regex.test(inputText);
@@ -110,50 +105,83 @@ function checkInputValue(inputText, element, eventType){
 
 }
 
-
 // Добавление и удаление товаров 
 
 const plusButtons = document.querySelectorAll(".plus_btn")
 const minusButtons = document.querySelectorAll(".minus_btn")
+const productPictures = document.querySelectorAll(".product_picture_withQuantity")
 
 
-function plusProduct(id){
-    data.forEach(product => {
 
-        if(product.plus_id === id || product.mobId.plus_id === id ){
-            product.plus()
+function changeProductCount(id, symbol){
+    data.forEach( product => {
+        if (product.minus_id === id || product.mobId.minus_id === id || product.plus_id === id || product.mobId.plus_id === id ){
+            if(symbol === "plus"){
+                product.plus()
+            }else if(symbol === "minus"){
+                product.minus()
+            }
             document.querySelector(`#${product.weHaveId}`).innerHTML = product.weHave
             document.querySelector(`#${product.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
             document.querySelector(`#${product.mobId.weHaveId}`).innerHTML = product.weHave
             document.querySelector(`#${product.mobId.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
-            document.querySelector(`#${product.arrival_logo_id}`).innerHTML = `<div class="quantity_circle_value">${product.weHave}</div>`
-            showPrice()
+            
         }
+            showPrice()
     })
 }
 
-function minusProduct(id){
-    data.forEach(product => {
-        if(product.minus_id === id || product.mobId.minus_id === id ){
-            product.minus()
-            document.querySelector(`#${product.weHaveId}`).innerHTML = product.weHave
-            document.querySelector(`#${product.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
-            document.querySelector(`#${product.mobId.weHaveId}`).innerHTML = product.weHave
-            document.querySelector(`#${product.mobId.inStokeId}`).innerHTML = `осталось ${product.inStoke} шт.`
-            document.querySelector(`#${product.arrival_logo_id}`).innerHTML = `<div class="quantity_circle_value">${product.weHave}</div>`
-            showPrice()
-        }
+//Функция для показа/скрытия/изменения для картинки в блоке "Способ доставки"
+
+function changeProductQuantityInPicture(product){
+  
+    productPictures.forEach(productPictureNode => {
+        [...productPictureNode.children].forEach(element => {
+            if(element.id === product.arrival_logo_id){
+                if(product.weHave === 0){
+                    productPictureNode.classList.add("hide_element")
+                } else if(product.weHave === 1){
+                    if(productPictureNode.classList.contains("hide_element")){
+                        productPictureNode.classList.remove("hide_element")
+                    }
+                    element.classList.add("hide_element")
+                } else if(product.weHave > 1){
+                    if(element.classList.contains("hide_element")){
+                        element.classList.remove("hide_element")
+                    }
+                }
+                if(product.isChecked){
+                    if(product.weHave){
+                    productPictureNode.classList.remove("hide_element")
+                    }
+                }else{
+                    productPictureNode.classList.add("hide_element")
+                }
+            }
+        })
     })
+
+    if(product.weHave > 1){
+        document.querySelector(`#${product.arrival_logo_id}`).innerHTML = `<div class="quantity_circle_value">${product.weHave}</div>`
+    }
+}
+
+function clearAllNoDate(){
+    hiddenData.forEach(element => element.classList.add("hide_element"))
+}
+
+function showAllNoDate(){
+    hiddenData.forEach(element => element.classList.remove("hide_element"))
 }
 
 plusButtons.forEach(e => {
     let plus =  document.querySelector(`#${e.id}`)
-    plus.addEventListener("click" , () => plusProduct(e.id))
+    plus.addEventListener("click" , () => changeProductCount(e.id ,"plus"))
 })
 
 minusButtons.forEach(e => {
     let minus =  document.querySelector(`#${e.id}`)
-    minus.addEventListener("click" , () => minusProduct(e.id))
+    minus.addEventListener("click" , () => changeProductCount(e.id , "minus"))
 })
 
 const fullPrice = document.querySelector("#full_price")
@@ -171,19 +199,27 @@ function showPrice(){
             discountPriceValue += product.discountPrice * product.weHave
             discountValue  -= product.price  * product.weHave  - product.discountPrice * product.weHave
         }
+        changeProductQuantityInPicture(product)
     })
-    console.log(fullPriceValue);
+    if(!fullPriceValue && !discountPriceValue){
+        clearAllNoDate()
+    }
+    if(fullPriceValue || discountPriceValue){
+        showAllNoDate()
+    }
+
     fullPriceValue = fullPriceValue.toLocaleString()
     discountPriceValue = discountPriceValue.toLocaleString()
     discountValue = discountValue.toLocaleString()
-    console.log( fullPriceValue);
     fullPrice.innerHTML = `${fullPriceValue} сом` 
     discountPrice.innerHTML = `${discountPriceValue} сом`
     discount.innerHTML = `${discountValue} сом`
 }
+
 showPrice()
 
 // Скрытие/показ элементов из корзины
+
 let isShow = true
 const showBtn  = document.querySelector("#show_products")
 const hideBtn  = document.querySelector("#hide_products")
@@ -320,8 +356,8 @@ showNotAvailableProductsBtn.addEventListener('click' , showNotAvailableProducts)
 
 }
 
-
 //Модальное окно для изменения банковской карты и изменение карты на странице, в зависимости от выбранной карты
+
 {
     const ourCards = document.getElementsByName('card');
     const changeCardBtn = document.querySelector("#card_modal_btn")
@@ -370,7 +406,6 @@ showNotAvailableProductsBtn.addEventListener('click' , showNotAvailableProducts)
 
 //Модальное окно для изменения адресса  и изменение адресса на странице, в зависимости от выбранного адресса
 
-
 {
     const ourAdresses = document.getElementsByName("adress");
     const changeAdressBtn = document.querySelector("#adress_modal_btn")
@@ -410,7 +445,6 @@ showNotAvailableProductsBtn.addEventListener('click' , showNotAvailableProducts)
     changeAdressBtn.addEventListener("click" ,changeCard)
 }
 
-
 //Изменение табов для кнопок в модальном окне 
 
 const tabBtns = document.querySelectorAll(".tab_modal_adress_btn")
@@ -445,8 +479,6 @@ productsCheckbox.forEach((element)=>{
     element.addEventListener("change", chooseCheckbox)
 })
 
-
-
 // Логика для чекбока "выбрать всё"
 
 const pickAllProduct = document.querySelector("#pick_all")
@@ -461,7 +493,6 @@ function chooseAllProdcutCheckbox(){
 }
 
 pickAllProduct.addEventListener("change",chooseAllProdcutCheckbox )
-
 
 // Замена цвета кнопки при изменени значения чекбокса
 
