@@ -7,6 +7,7 @@
     --green-color: #0cb477;
     --grey-color:#a0a0a4;
     --smokyDark-color: #F0ECF4;
+    --cursor:url('./logos/cursor.svg'),auto;
 }
 
 *{
@@ -126,7 +127,7 @@
 .search_btn{
     background-color: transparent;
     border: none;
-    cursor: url('./logos/cursor.svg'),auto;
+    cursor: var(--cursor);
     opacity: 0.4;
 }
 .search_logo{
@@ -160,17 +161,21 @@
     left: calc(50% - 20px/2 + 18.55px);
     top: calc(50% - 16px/2 - 25px);
     background: var(--red-color);
-    width: 16px;
+    display: inline-block;
     height: 16px;
-    border-radius: 50%;
+    border-radius: 16px;
     color: var(--white-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 10px;
     line-height: 18px;
+    padding: 1px 5px 0px;
 }
+
+.quantity_circle_value{
+    position: relative;
+    bottom: 2px;
+}
+
 .quantity_circle_header{
     left: calc(50% - 2em/2 + 1.5em);
     top: calc(50% - 2em/2 - 1em);
@@ -182,7 +187,7 @@
     text-decoration: none;
     text-align: center;
     display: block;
-    cursor: url('./logos/cursor.svg'),auto;;
+    cursor: var(--cursor);
 }
 
 .main{
@@ -266,6 +271,9 @@
     gap:12px;
 }
 
+.order_list_container{
+    gap: 24px;
+}
 .delivery_info_header{
     font-family: Segoe UI;
     font-size: 16px;
@@ -278,7 +286,12 @@
 .logo_btn{
     background-color: transparent;
     border: none;
-    cursor:url('./logos/cursor.svg'),auto;;
+    cursor: var(--cursor);
+}
+
+.pay_now_container{
+    font-size: 13px;
+    line-height: 16px;
 }
 
 .arrive_date{
@@ -344,7 +357,7 @@
     line-height: 24px;
     text-align: center;
     border: none;
-    cursor: url('./logos/cursor.svg'),auto;;
+    cursor: var(--cursor);
     color: var(--white-color);
 }
 
@@ -397,6 +410,7 @@
     background-position: center center;
     background-size: 50% 50%;
     background-color: white;
+    cursor: var(--cursor);
 }
 
 .custom_checkbox_pay:checked+label::before {
@@ -410,6 +424,7 @@
     background-position: center;
     background-repeat: no-repeat;
     filter: invert();
+    cursor: var(--cursor);
   }
 
 .left_header{
@@ -445,7 +460,6 @@
 .pick_all_container{
     align-items: center;
     padding: 0px;
-    gap: 11px;
 }
 .checkbox_flex_container{
     display: flex;
@@ -479,6 +493,13 @@
     align-items: flex-start;
     padding: 12px 0px 0px;
     gap: 16px;
+}
+
+.plus_btn{
+    cursor: var(--cursor);
+}
+.minus_btn{
+    cursor: var(--cursor); 
 }
 
 .add_product_container{
@@ -732,7 +753,6 @@
 }
 
 .delivery_order_left{
-    padding-left:24px;
     gap: 16px;
     font-weight: 600;
 }
@@ -976,7 +996,7 @@
     font-size: 13px;
     font-weight: 700;
     line-height: 16px;
-    cursor:url('./logos/cursor.svg'),auto;
+    cursor: var(--cursor);
     height: 36px;
 }
 
@@ -1017,12 +1037,14 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50% 50%;
+    cursor: var(--cursor);
 }
 
 .radio_btn:checked+label::before {
     border-color: var(--lilac-color);
     background-color: var(--lilac-color);
     background-image: url(./logos/Ellipse.svg);
+    cursor: var(--cursor);
 }
 
 .adress_container{
@@ -1060,7 +1082,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
-    cursor:url('./logos/cursor.svg'),auto;
+    cursor: var(--cursor);
 }
 .card_pick_container{
     margin-top: 13px;
@@ -1111,6 +1133,9 @@
         gap: 16px;
         color: var(--white-color);
         height: 56px;
+    }
+    .order_list_container{
+        gap: 0;
     }
     .header_container {
         height: 56px;
@@ -1247,7 +1272,6 @@
         width: 100%;
         height: 100%;
         background-color: inherit;
-        gap: 36px;
     }
     .gray_orfer_info_container{
         background-color: var(--smokyDark-color);

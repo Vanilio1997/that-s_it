@@ -172,6 +172,11 @@ function showPrice(){
             discountValue  -= product.price  * product.weHave  - product.discountPrice * product.weHave
         }
     })
+    console.log(fullPriceValue);
+    fullPriceValue = fullPriceValue.toLocaleString()
+    discountPriceValue = discountPriceValue.toLocaleString()
+    discountValue = discountValue.toLocaleString()
+    console.log( fullPriceValue);
     fullPrice.innerHTML = `${fullPriceValue} сом` 
     discountPrice.innerHTML = `${discountPriceValue} сом`
     discount.innerHTML = `${discountValue} сом`

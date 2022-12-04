@@ -168,11 +168,16 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                                 </div>
                             </div> `
     arraivalPictures += ` <div class="quantity_circle_container">
-                            <img style="width: inherit" src=${picture} /> <div class="quantity_circle" id=${arrival_logo_id}><div>${weHave}</div></div>
+                            <img style="width: inherit" src=${picture} /> 
+                            <div class="quantity_circle" id=${arrival_logo_id}>
+                                <div class="quantity_circle_value">${weHave}</div>
+                            </div>
                         </div>
                         `
     
 })
+
+
 
 
 
