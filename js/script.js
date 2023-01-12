@@ -32,8 +32,8 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
         return isProductArr.join("")
     }
     isProductInfoMob()
-    const sizeContainerClass = () => size ? "size_container" : "hide_element"
-    
+    const getSizeContainerClass = () => size ? "size_container" : "hide_element"
+    const sizeContainerClass = getSizeContainerClass()
     let discountPrcieClass = () => String(discountPrice).length > 3 ? "long_discount_price" : "short_discpount_price" 
     let splitPrice = price.toLocaleString() 
     let splitDiscountPrice = discountPrice.toLocaleString()
@@ -119,8 +119,10 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                                 <input type="checkbox" checked class="custom_checkbox_pay pick_product_checkbox" id="${mobId.id}" >
                                 <label class="mob_checkbox_product" for="${mobId.id}"/>
                             </div>
-                            <div class=${sizeContainerClass()}>
-                                <div>${size}</div>
+                            <div class="phone_adaptive">
+                                <div class="${sizeContainerClass}">
+                                    <div>${size}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -169,8 +171,10 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                                 <div class="notAvailable_product_type flex_row">
                                     <div class="prodcut_picture"> 
                                         <img class="filter_gray mob_notAvailable_product_photo" src="${picture}" alt="logo_place"/>
-                                        <div class="phone_adaptive ${sizeContainerClass()}" >
-                                            <div>${size}</div>
+                                        <div class="phone_adaptive">
+                                            <div class="${sizeContainerClass}" >
+                                                <div>${size}</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="notAvailable_product_description flex_column"> 
