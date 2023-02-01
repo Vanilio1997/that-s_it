@@ -27,7 +27,7 @@ const data = [
         weHaveId:"weHave_id_1" , 
         price: 1051,
         discountPrice: 522,
-        currency: "com",
+        currency: "сом",
         id:"checkbox_id_1",
         mobId:{
             id:"mob_checkbox_id_1",
@@ -81,7 +81,7 @@ const data = [
         weHaveId:"weHave_id_2" , 
         price: 2300047,
         discountPrice: 2100047,
-        currency: "com",
+        currency: "сом",
         id:"checkbox_id_2",
         isChecked: true,
         picture: "./logos/Iphone_case.png",
@@ -133,7 +133,7 @@ const data = [
         weHaveId:"weHave_id_3",
         price: 950,
         discountPrice: 494,
-        currency: "com",
+        currency: "сом",
         id:"checkbox_id_3",
         mobId:{
             id:"mob_checkbox_id_3",
@@ -204,7 +204,7 @@ const inputsData = [
         regex: /((\+7|7|8)+([0-9]){10})$/,
     },
     {
-        placeholder:"Инн",
+        placeholder:"ИНН",
         warningText:"Формат: 1234567",
         id: "index_input",
         label: 'Для таможенного оформления',

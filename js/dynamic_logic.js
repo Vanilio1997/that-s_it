@@ -136,6 +136,7 @@ function changeProductCount(id, symbol){
 function changeProductQuantityInPicture(product){
   
     productPictures.forEach(productPictureNode => {
+        console.log(productPictureNode);
         [...productPictureNode.children].forEach(element => {
             if(element.id === product.arrival_logo_id){
                 if(product.weHave === 0){
@@ -166,12 +167,16 @@ function changeProductQuantityInPicture(product){
     }
 }
 
+const orderHiddeElement = document.querySelectorAll(".order_hidden")
+
 function clearAllNoDate(){
     hiddenData.forEach(element => element.classList.add("hide_element"))
+    orderHiddeElement.forEach(element => element.classList.add("hide_element"))
 }
 
 function showAllNoDate(){
     hiddenData.forEach(element => element.classList.remove("hide_element"))
+    orderHiddeElement.forEach(element => element.classList.remove("hide_element"))
 }
 
 plusButtons.forEach(e => {
@@ -187,17 +192,21 @@ minusButtons.forEach(e => {
 const fullPrice = document.querySelector("#full_price")
 const discountPrice = document.querySelector("#discount_price")
 const discount = document.querySelector("#discount")
+const productQuantityElement = document.querySelector(".left_price_info")
 
 
 function showPrice(){
     let fullPriceValue = 0
     let discountPriceValue = 0
     let discountValue = 0
+    let productQuantity = 0
+    let productName = ''
     data.forEach((product) => {
         if(product.weHave && product.isChecked){
             fullPriceValue += product.price * product.weHave
             discountPriceValue += product.discountPrice * product.weHave
             discountValue  -= product.price  * product.weHave  - product.discountPrice * product.weHave
+            productQuantity += product.weHave
         }
         changeProductQuantityInPicture(product)
     })
@@ -208,12 +217,21 @@ function showPrice(){
         showAllNoDate()
     }
 
+   if(productQuantity  === 0 | productQuantity > 4){
+    productName = "товаров"
+   } else if (productQuantity === 1){
+    productName = "товар"
+   } else {
+    productName = "товара"
+   }
+
     fullPriceValue = fullPriceValue.toLocaleString()
     discountPriceValue = discountPriceValue.toLocaleString()
     discountValue = discountValue.toLocaleString()
     fullPrice.innerHTML = `${fullPriceValue} сом` 
     discountPrice.innerHTML = `${discountPriceValue} сом`
     discount.innerHTML = `${discountValue} сом`
+    productQuantityElement.innerHTML = `${productQuantity} ${productName}`
 }
 
 showPrice()
@@ -234,14 +252,26 @@ function hideProducts(){
     showBtn.classList.remove("hide_element")
     let prodcutsQuanity = 0
     let price = 0
-
-    data.forEach(({weHave , discountPrice})=>{
-        if(weHave){
+    let productName = ''
+    console.log(data)
+    data.forEach(({weHave , discountPrice,isChecked })=>{
+        if(weHave && isChecked ){
             prodcutsQuanity += weHave
             price += weHave * discountPrice
         }
     })
-    hiddenProductsInfo.innerHTML  = `${prodcutsQuanity} товаров · ${price} сом`
+
+    if(prodcutsQuanity  === 0 | prodcutsQuanity > 4){
+        productName = "товаров"
+       } else if (prodcutsQuanity === 1){
+        productName = "товар"
+       } else {
+        productName = "товара"
+       }
+
+
+
+    hiddenProductsInfo.innerHTML  = `${prodcutsQuanity} ${productName} · ${price} сом`
 }
 
 function showProducts(){
@@ -388,14 +418,22 @@ showNotAvailableProductsBtn.addEventListener('click' , showNotAvailableProducts)
                     newCardInfo = cardInfo
                 }
             })
-            changingElements.forEach(changingElement=>{
-
-                changingElement.innerHTML = `
-                    <div class="card_type">
-                        <img src="${newCardInfo.picture}"/>
-                    </div>
-                    <div class="card_number">${newCardInfo.number}</div>
+            changingElements.forEach( (changingElement, index)=>{
+                if(index % 2){
+                    changingElement.innerHTML = `
+                        <div class="card_type">
+                            <img src="${newCardInfo.picture}"/>
+                        </div>
+                        <div class="card_number">${newCardInfo.number}</div>
+                    `
+                } else {
+                    changingElement.innerHTML = `
+                        <div class="card_type">
+                            <img src="${newCardInfo.picture}"/>
+                        </div>
+                            <div>${newCardInfo.number}</div>
                 `
+                }
             })
         }
         cardModalWindow.classList.add("hide_element")

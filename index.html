@@ -30,24 +30,39 @@
                 <div  class="search_container desktop_adaptive ">
                     <div class="input_header_container">
                         <div class="input_block">
-                            <input  class="search_input" placeholder="Я ищу"/>
+                            <input  class="search_input" placeholder="Я ищу..."/>
                         </div>
                         <button class="search_btn"><img class="search_logo" src="./logos/Search.svg"  /></button>
                     </div>
                 </div>    
                 <div class="icons_container flex_row desktop_adaptive">
                     <div>
-                        <a class="header_icon"><img src="./logos/Profile_icon.svg"><span>Профиль</span></a>
-                    </div>
-                    <a class="header_icon">
-                        <div class="quantity_circle_container">
-                            <img class="backet_logo" src="./logos/basket_icon.svg" /> 
-                            <div class="quantity_circle quantity_circle_header">
-                                <div class="quantity_circle_value">3</div>
+                        <a class="header_icon">
+                            <div class="flex_column gap_6">
+                                    <div>
+                                        <img src="./logos/Profile_icon.svg">
+                                    </div>
+                                    <div>
+                                        <span class="text_under_header_icon">Профиль</span>
+                                    </div>
                             </div>
-                        </div> 
-                        <span>Корзина</span>
-                    </a>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="header_icon">
+                            <div class="flex_column gap_6">
+                                <div class="quantity_circle_container">
+                                    <img class="backet_logo" src="./logos/basket_icon.svg" /> 
+                                    <div class="quantity_circle quantity_circle_header">
+                                        <div class="quantity_circle_value">3</div>
+                                    </div>
+                                </div> 
+                                <div>
+                                    <span class="text_under_header_icon">Корзина</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>         
             </div>
         </header>
@@ -59,7 +74,7 @@
                         <div class="mob_main_header_text"><h2 class="phone_adaptive">Корзина</h2></div>
                         <div class="flex_column backet_info_container">
                             <div class="inStok_container flex_column gap_16">
-                                <div class="pick_all_container flex_row">
+                                <div class="pick_all_container flex_row gap_12">
                                         <div class="show_products_elements checkbox_flex_container" >
                                             <input type="checkbox" checked class="custom_checkbox_pay" id="pick_all" >
                                             <label for="pick_all"/>
@@ -82,9 +97,9 @@
                             </div>
                             <div class="flex_column registration_container">
                                 <div class="white_container flex_column delivery_container">
-                                    <div class="flex_column delivery_method_container">
+                                    <div class="flex_column gap_12">
                                         <div class="flex_row delivery_method_container_header">
-                                            <h2 class="desktop_adaptive">Способ доставки</h2>
+                                            <h2 class="desktop_adaptive header_text_settings">Способ доставки</h2>
                                             <h3 class="phone_adaptive">Способ доставки</h3>
                                             <button class="logo_btn change_adress change_delivery_method_btn">Изменить</button>
                                         </div>
@@ -92,8 +107,8 @@
                                             <div class="flex_column delivery_order_left ">
                                                 <div class="height_44">Пункт выдачи</div>
                                                 <div>Стоимость доставки</div>
-                                                <div class="height_56">5—6 февраля</div>
-                                                <div>7—8 февраля</div>
+                                                <div class="height_56 order_hidden">5—6 февраля</div>
+                                                <div class="order_hidden">7—8 февраля</div>
                                             </div>
                                             <div class="flex_column delivery_order_right">
                                                 <div class="flex_column delivery_right_place_container">
@@ -108,7 +123,7 @@
                                                 </div>
                                                 <div>Бесплатно</div>
                                                 <div class="arrival_date flex_row gap_8"></div>
-                                                <div class="arrival_date flex_row gap_8">
+                                                <div class="arrival_date order_hidden flex_row gap_8">
                                                     <div class="quantity_circle_container">
                                                         <img style="width: inherit" src="./logos/Iphone_case.png" /> 
                                                         <div class="quantity_circle" id=${arrival_logo_id}>
@@ -156,15 +171,13 @@
                                         </div>
                                     </div>
                                     <div  class="refund_delivery_container padding_l_24 refund_info_container">
-                                        <div> 
                                             <div class="circle_logo">
                                                 <img src="./logos/icon.svg" alt="" /> 
                                                 <div>
                                                     <img  class="check_mark_logo" src="./logos/Rectangle 2703 (Stroke).svg" />
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div> Обратная доставка товаров на склад при отказе — 
+                                            <div class="refuse_bottom_style"> Обратная доставка товаров на склад при отказе — 
                                             <span id="left_side_hover_warning_element" class="green_text refund_warning">бесплатно
                                                 <div class="hover_refund_info hide_element">
                                                     Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно
@@ -176,25 +189,25 @@
                                  <div class="flex_column white_container payment_container">
                                     <div class="flex_column gap_16">
                                         <div class="flex_row flex_space_between">
-                                            <h2 class="desktop_adaptive">Способ оплаты</h2>
+                                            <h2 class="desktop_adaptive header_text_settings">Способ оплаты</h2>
                                             <h3 class="phone_adaptive">Способ оплаты</h3>
                                             <button class="logo_btn change_card change_delivery_method_btn">Изменить</button>
                                         </div>
-                                        <div class="gap_8 flex_row">
-                                            <div class="changing_card flex_row gap_2">
+                                        <div class="gap_12 flex_row">
+                                            <div class="changing_card flex_row gap_4">
                                                 <div class="card_type">
                                                     <img src="./logos/mir.svg" />                                           
                                                 </div>
-                                                <p>1234 12•• •••• 1234</p>
+                                                <p class="margin_l_8px">1234 56•• •••• 1234</p>
                                             </div>
                                             <p>01/30</p>
                                         </div>
                                     </div>
-                                    <div class="color_gray">Спишем оплату с карты при получении</div>
+                                    <div class=" refuse_bottom_style color_gray">Спишем оплату с карты при получении</div>
                                 </div>
                                 <div class="white_container flex_column recipient_container gap_16">
                                     <div class="flex_row margin_b_10">
-                                        <h2 class="desktop_adaptive">Получатель</h2>
+                                        <h2 class="desktop_adaptive header_text_settings">Получатель</h2>
                                         <h3 class="phone_adaptive">Получатель</h3>
                                     </div>
                                     <div class="flex_column input_container">
@@ -213,7 +226,7 @@
                 <div class="right_main">
                     <div class="white_container order_fullInfo_box flex_column">
                         <div class="order_list_container  full_width flex_column">
-                            <div class="price_info_container flex_column">
+                            <div class="price_info_container flex_column gap_8">
                                 <div class="price_header_info_container flex_row">
                                     <div class="left_price_info header_text_price">Итого</div>
                                     <div id="discount_price" class="right_price_info header_text_price"></div>
@@ -234,7 +247,7 @@
                                 </div>
                             </div>
                             <div class="delivery_info_container flex_column">
-                                <div class="delivary_place desktop_adaptive">
+                                <div class="delivary_place desktop_adaptive gap_2 flex_column">
                                     <div class="price_container flex_row">
                                         <div class="delivery_info_header">Доставка в пункт выдачи</div>
                                         <div class="edit_logo">
@@ -253,7 +266,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div >
                                         <div> Обратная доставка товаров на склад при отказе — 
                                             <span id="right_side_hover_warning_element" class="green_text">бесплатно</span>
                                         </div>

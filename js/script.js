@@ -11,20 +11,29 @@ let adressRadioBtn = '';
 
 data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, weHave, mobId, price, discountPrice, currency, picture, discountInfo, id , plus_id, minus_id, inStokeId,arrival_logo_id, weHaveId, infoLogoId, discountPriceId,})=>{
 
+
+    console.log(productInfo);
     let isProductInfo = () =>{
-        let isProductArr = []
-        productInfo.forEach(({type,info}) => isProductArr.push(`<div>${type}: ${info}</div>`))
-        return isProductArr.join("")
+        if(productInfo.length){
+            let isProductArr = []
+            productInfo.forEach(({type,info}) => isProductArr.push(`
+            <div>${type}: ${info}</div>`
+            ))
+            console.log(isProductArr.join());
+            return   `<div class="product_info"> ${isProductArr.join("")}</div>`
+        }  else{
+            return `<div style="display:none"></div>`
+        }
     }
+
+    // console.log(isProductInfo());
     let size = ''
     let isProductInfoMob = () =>{
         let isProductArr = []
 
         productInfo.forEach(({type,info}) => {
-            console.log(type, info);
             if(type === "Размер"){
                 size = info
-                console.log(size);
             }else{
             isProductArr.push(`<div>${type}: ${info}</div>`)
             }
@@ -37,10 +46,10 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
     let discountPrcieClass = () => String(discountPrice).length > 3 ? "long_discount_price" : "short_discpount_price" 
     let splitPrice = price.toLocaleString() 
     let splitDiscountPrice = discountPrice.toLocaleString()
-    // console.log(size);
+
     products += `<div class="product_container flex_row desktop_adaptive">
                     <div class="product_type flex_row"> 
-                        <div class="flex_row add_product_container "> 
+                        <div class="flex_row add_product_container gap_12"> 
                             <div class="checkbox_flex_container"> 
                                 <input type="checkbox" checked class="custom_checkbox_pay pick_product_checkbox" id="${id}" >
                                 <label for="${id}"/>
@@ -51,7 +60,7 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                         </div>
                         <div class="flex_column product_description">
                             <div class="product_name">${productName}</div>
-                            <div class="product_info">${isProductInfo()}</div>
+                            ${isProductInfo()}
                             <div class="flex_column company_info_container">
                                 <div class="marketPlaceName"> ${marketPlaceName}</div>
                                 <div class="flex_row company_name_container">       
@@ -71,9 +80,9 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                     <div class="flex_row quantity_price_container">
                         <div class="flex_column quantity_container"> 
                             <div class="flex_row counter_container"> 
-                                <div class='minus_btn' id=${minus_id}>-</div>    
+                                <div class='minus_btn' id=${minus_id}>−</div>    
                                 <div id=${weHaveId}>${weHave}</div>    
-                                <div class='plus_btn' id=${plus_id} >+</div>    
+                                <div class='plus_btn' id=${plus_id}>+</div>    
                             </div>
                             <span id=${inStokeId} class="product_inStoke hide_element">осталось ${inStoke} шт.</span>
                             <div class="flex_row delete_like_btns_container hide_element">
@@ -222,7 +231,7 @@ for (let i = 0; i< inputsData.length; i++){
                     <div class="gap_4 ${inputsData[i].class}">
                         <input  maxlength=${maxLength} class="full_width recipient_input_text recipient_input_settings" type="text" placeholder=${inputsData[i].placeholder} id=${inputsData[i].id}></input>
                     </div>
-                    <div class="black_color">${inputsData[i]?.label}</div>
+                    <div class="black_color input_label_text_form">${inputsData[i]?.label}</div>
                 </div>
                 `
     if(i<2){
