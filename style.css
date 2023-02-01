@@ -916,6 +916,10 @@
     font-weight: 600;
 }
 
+.font_s_16{
+    font-size: 16px;
+}
+
 .center_element{
     display: flex;
     justify-content: center;

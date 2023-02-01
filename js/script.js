@@ -81,7 +81,7 @@ data.forEach(({productName, productInfo, marketPlaceName, companyInfo, inStoke, 
                         <div class="flex_column quantity_container"> 
                             <div class="flex_row counter_container"> 
                                 <div class='minus_btn' id=${minus_id}>−</div>    
-                                <div id=${weHaveId}>${weHave}</div>    
+                                <div class='font_s_16' id=${weHaveId}>${weHave}</div>    
                                 <div class='plus_btn' id=${plus_id}>+</div>    
                             </div>
                             <span id=${inStokeId} class="product_inStoke hide_element">осталось ${inStoke} шт.</span>
