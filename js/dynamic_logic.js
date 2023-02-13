@@ -192,7 +192,7 @@ minusButtons.forEach(e => {
 const fullPrice = document.querySelector("#full_price")
 const discountPrice = document.querySelector("#discount_price")
 const discount = document.querySelector("#discount")
-const productQuantityElement = document.querySelector(".left_price_info")
+const productQuantityElement = document.querySelector(".price_quantity_left ")
 
 
 function showPrice(){
