@@ -1327,6 +1327,7 @@
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+        width: 100%;
     }
     .notAbailable_right_block {
         width: 100%;
@@ -1448,6 +1449,9 @@
     }
     .mob_notAvailable_product_photo{
 
+    }
+    .notAvailable_product_description{
+        width: 100%;
     }
 }
 
